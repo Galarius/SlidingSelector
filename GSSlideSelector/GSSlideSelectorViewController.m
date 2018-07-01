@@ -8,7 +8,7 @@
 #import "GSSlideSelectorViewController.h"
 #import "GSSlideSelectorStyle.h"
 
-@interface GSSlideSelectorViewController () <UIScrollViewDelegate>
+@interface GSSlideSelectorViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 /*!
  *  \brief ScrollView to slide items horizontally
@@ -22,6 +22,8 @@
  *  \brief Selected & displayed item
  */
 @property(strong, nonatomic) NSString *selectedItem;
+
+@property(nonatomic) BOOL decelerating;
 
 @end
 
@@ -38,7 +40,7 @@
 {
     [super viewDidLoad];
     
-    [self setupViews];
+    [self setupView];
     [self reloadData];
 }
 
@@ -58,15 +60,25 @@
     }
 }
 
-- (void)setupViews
+- (void)setupView
 {
+    self.view.backgroundColor = [GSSlideSelectorStyleKit mainColor];
+    
     _scrollView = [[UIScrollView alloc] init];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.backgroundColor = [GSSlideSelectorStyleKit mainColor];
+    self.scrollView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.scrollView];
+    
+    // Configure the press and hold gesture recognizer
+    UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc]
+                                        initWithTarget:self
+                                        action:@selector(holdGesture:)];
+    gr.minimumPressDuration = 0.0;
+    gr.delegate = self;
+    [self.scrollView addGestureRecognizer:gr];
 }
 
 - (void)reloadData
@@ -108,6 +120,11 @@
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    self.decelerating = YES;
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // Update selected item
@@ -121,6 +138,36 @@
     // Notify observer
     if(delegateRespondsTo.didSelectItem) {
         [self.delegate slideSelector:self didSelectItemAtIndex:idx];
+    }
+    self.scrollView.backgroundColor = [UIColor clearColor];
+    self.decelerating = NO;
+}
+
+#pragma mark - GestureRecognizer Delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+#pragma mark - GestureRecognizer Action
+
+- (void)holdGesture:(UIGestureRecognizer *)gesture
+{
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+            self.scrollView.backgroundColor = [GSSlideSelectorStyleKit holdTouchColor];
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed:
+            if(!self.decelerating) {
+                self.scrollView.backgroundColor = [UIColor clearColor];
+            }
+            break;
+            
+        default:
+            break;
     }
 }
 

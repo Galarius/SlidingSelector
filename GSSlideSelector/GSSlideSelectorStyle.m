@@ -32,6 +32,7 @@ static const NSInteger GSSubFontSize = 16;
         }
         // Setup other style consts
         _mainColor = [UIColor colorWithRed:240/255.0f green:235/255.0f blue:180/255.0f alpha:1.0f];
+        _holdTouchColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.2f];
     }
     return self;
 }
@@ -51,9 +52,9 @@ static const NSInteger GSSubFontSize = 16;
 - (UITextField*)createTextFieldWithText:(NSString *)text;
 {
     UITextField *tField = [[UITextField alloc] init];
-    tField.backgroundColor = self.mainColor;
+    tField.backgroundColor = [UIColor clearColor];
     tField.textAlignment = NSTextAlignmentCenter;
-    tField.textColor = [UIColor darkGrayColor];
+    tField.textColor = [UIColor blackColor];
     tField.returnKeyType = UIReturnKeyDone;
     tField.userInteractionEnabled = NO;
     tField.font = self.mainFont;
