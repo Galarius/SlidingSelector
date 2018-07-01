@@ -13,7 +13,8 @@
 
 @property (strong, nonatomic) NSArray *items;
 @property (strong, nonatomic) GSSlideSelectorViewController *selector;
-@property (weak, nonatomic) IBOutlet UILabel *lblSelectedItem;
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+
 
 @end
 
@@ -24,26 +25,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _items = @[@"Winter", @"Spring", @"Summer", @"Autumn"];
+    _items = @[@"Earth", @"Moon", @"Mars", @"Neptune"];
     _selector = [[GSSlideSelectorViewController alloc] init];
     self.selector.delegate = self;
     [self addChildViewController:self.selector];
     [self.view addSubview:self.selector.view];
     [self.selector didMoveToParentViewController:self];
     
-    _lblSelectedItem.font = [GSSlideSelectorStyleKit mainFont];
-    _lblSelectedItem.text = [self.items firstObject];
-    _lblSelectedItem.backgroundColor = [UIColor clearColor];
-    _lblSelectedItem.textColor = [UIColor whiteColor];
+    self.imgView.image = [UIImage imageNamed:[self.items firstObject]];
     
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = GSSlideSelectorStyleKit.mainColor;
 }
 
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
     
-    self.selector.view.frame = CGRectMake(0, 40, CGRectGetWidth(self.view.frame), 60);
+    self.selector.view.frame = CGRectMake(0, 20, CGRectGetWidth(self.view.frame), 50);
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,25 +65,7 @@
 - (void)slideSelector:(GSSlideSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
 {
     NSLog(@"Selected item at index: %lu (%@)", (unsigned long)index, [self.items objectAtIndex:index]);
-    _lblSelectedItem.text = [self.items objectAtIndex:index];
-    switch (index) {
-        case 0:
-            self.view.backgroundColor = [UIColor blueColor];
-            _lblSelectedItem.textColor = [UIColor whiteColor];
-            break;
-        case 1:
-            self.view.backgroundColor = [UIColor greenColor];
-            _lblSelectedItem.textColor = [UIColor blackColor];
-            break;
-        case 2:
-            self.view.backgroundColor = [UIColor yellowColor];
-            _lblSelectedItem.textColor = [UIColor blackColor];
-            break;
-        case 3:
-            self.view.backgroundColor = [UIColor redColor];
-            _lblSelectedItem.textColor = [UIColor whiteColor];
-            break;
-    }
+    self.imgView.image = [UIImage imageNamed:[self.items objectAtIndex:index]];
 }
 
 @end

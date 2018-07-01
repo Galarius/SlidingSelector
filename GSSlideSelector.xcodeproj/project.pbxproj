@@ -11,6 +11,10 @@
 		BE1582B320E9002A00C98D25 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B020E9002A00C98D25 /* titilliumweb-semibold.ttf */; };
 		BE1582B420E9002A00C98D25 /* ofl.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B120E9002A00C98D25 /* ofl.txt */; };
 		BE1582B520E9002A00C98D25 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B220E9002A00C98D25 /* titilliumweb-regular.ttf */; };
+		BE1582BD20E9624900C98D25 /* Moon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B920E9624900C98D25 /* Moon.png */; };
+		BE1582C220E9641700C98D25 /* Earth.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582BF20E9641600C98D25 /* Earth.png */; };
+		BE1582C320E9641700C98D25 /* Mars.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582C020E9641600C98D25 /* Mars.png */; };
+		BE1582C420E9641700C98D25 /* Neptune.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582C120E9641700C98D25 /* Neptune.png */; };
 		BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062520E761FC00D771F6 /* AppDelegate.m */; };
 		BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062820E761FC00D771F6 /* FirstViewController.m */; };
 		BE2A062C20E761FD00D771F6 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062B20E761FD00D771F6 /* SecondViewController.m */; };
@@ -28,6 +32,10 @@
 		BE1582B020E9002A00C98D25 /* titilliumweb-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "titilliumweb-semibold.ttf"; sourceTree = "<group>"; };
 		BE1582B120E9002A00C98D25 /* ofl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ofl.txt; sourceTree = "<group>"; };
 		BE1582B220E9002A00C98D25 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "titilliumweb-regular.ttf"; sourceTree = "<group>"; };
+		BE1582B920E9624900C98D25 /* Moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon.png; sourceTree = "<group>"; };
+		BE1582BF20E9641600C98D25 /* Earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Earth.png; sourceTree = "<group>"; };
+		BE1582C020E9641600C98D25 /* Mars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mars.png; sourceTree = "<group>"; };
+		BE1582C120E9641700C98D25 /* Neptune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Neptune.png; sourceTree = "<group>"; };
 		BE2A062120E761FC00D771F6 /* GSSlideSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlideSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2A062420E761FC00D771F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,6 +74,17 @@
 			path = GSSlideSelectorExample/Fonts;
 			sourceTree = "<group>";
 		};
+		BE1582B620E9624900C98D25 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BE1582BF20E9641600C98D25 /* Earth.png */,
+				BE1582C020E9641600C98D25 /* Mars.png */,
+				BE1582C120E9641700C98D25 /* Neptune.png */,
+				BE1582B920E9624900C98D25 /* Moon.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		BE2A061820E761FC00D771F6 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +106,7 @@
 		BE2A062320E761FC00D771F6 /* GSSlideSelectorExample */ = {
 			isa = PBXGroup;
 			children = (
+				BE1582B620E9624900C98D25 /* Images */,
 				BE2A062420E761FC00D771F6 /* AppDelegate.h */,
 				BE2A062520E761FC00D771F6 /* AppDelegate.m */,
 				BE2A062720E761FC00D771F6 /* FirstViewController.h */,
@@ -171,8 +191,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1582C320E9641700C98D25 /* Mars.png in Resources */,
+				BE1582C220E9641700C98D25 /* Earth.png in Resources */,
 				BE1582B520E9002A00C98D25 /* titilliumweb-regular.ttf in Resources */,
 				BE1582B320E9002A00C98D25 /* titilliumweb-semibold.ttf in Resources */,
+				BE1582BD20E9624900C98D25 /* Moon.png in Resources */,
+				BE1582C420E9641700C98D25 /* Neptune.png in Resources */,
 				BE1582B420E9002A00C98D25 /* ofl.txt in Resources */,
 				BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */,
 				BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */,
