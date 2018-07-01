@@ -6,6 +6,8 @@
 
 Controller for selecting items with swipe gestures.
 
+![](assets/example.gif)
+
 ## Usage
 
 1. Add folder `GSSlideSelector` to your project.
