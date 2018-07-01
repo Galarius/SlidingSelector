@@ -8,6 +8,8 @@
 #import "GSSlideSelectorViewController.h"
 #import "GSSlideSelectorStyle.h"
 
+const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
+
 @interface GSSlideSelectorViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 /*!
@@ -22,8 +24,14 @@
  *  \brief Selected & displayed item
  */
 @property(strong, nonatomic) NSString *selectedItem;
-
+/*!
+ * \brief Flag to know if scroll view's decelerating is active
+ */
 @property(nonatomic) BOOL decelerating;
+/*!
+ * \brief Index to know the last active item
+ */
+@property(nonatomic) NSUInteger activeIndex;
 
 @end
 
@@ -39,6 +47,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.activeIndex = 0;
     
     [self setupView];
     [self reloadData];
@@ -66,7 +76,7 @@
     
     _scrollView = [[UIScrollView alloc] init];
     self.scrollView.delegate = self;
-    self.scrollView.pagingEnabled = YES;
+    self.scrollView.pagingEnabled = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.backgroundColor = [UIColor clearColor];
@@ -109,13 +119,50 @@
     CGFloat h = CGRectGetHeight(self.view.frame);
     self.scrollView.frame = CGRectMake(0, 0, w, h);
     
-    CGFloat x = 0;
-    for(int i = 0; i < self.textFields.count; ++i, x += w) {
-        UITextField *tField = [self.textFields objectAtIndex:i];
-        tField.frame = CGRectMake(x, 0, w, h);
+    /*
+     *   |       ][    active    ][      |       ][              ]
+     *         <------------>
+     *            1/2 * w
+     */
+    CGFloat w2 = w * 0.5f;
+    CGFloat w4 = w2 * 0.5f;
+    
+    UITextField *tField = [self.textFields firstObject];
+    tField.frame = CGRectMake(w4, 0, w2, h);
+    CGFloat x = w4 + w2;
+    
+    for(int i = 1; i < self.textFields.count; ++i) {
+        tField = [self.textFields objectAtIndex:i];
+        tField.frame = CGRectMake(x, 0, w2, h);
+        tField.alpha = 0;
+        x += w2;
     }
+    self.scrollView.contentSize = CGSizeMake(x + w4, h);
+}
 
-    self.scrollView.contentSize = CGSizeMake(x, h);
+#pragma mark - State
+
+- (void)hideNeighbors:(BOOL)hidden
+{
+    for(int i = 0; i < self.scrollView.subviews.count; ++i) {
+        UIView* subview = [self.scrollView.subviews objectAtIndex:i];
+        if( i != self.activeIndex && [subview isKindOfClass:[UITextField class]]) {
+            subview.alpha = !hidden;
+        }
+    }
+}
+
+- (void)toggleState:(BOOL)updating
+{
+    [UIView animateWithDuration:GSBackColorChangeAnimationTime animations:^{
+        if(updating) {
+            self.scrollView.backgroundColor = [GSSlideSelectorStyleKit holdTouchColor];
+            [self hideNeighbors:NO];
+        } else {
+            self.scrollView.backgroundColor = [UIColor clearColor];
+            [self hideNeighbors:YES];
+        }
+    }];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -127,20 +174,36 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    // Update selected item
+    [self toggleState:NO];
+    self.decelerating = NO;
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    CGFloat offset = scrollView.contentOffset.x + velocity.x * 60.0f;
     CGFloat w = CGRectGetWidth(self.scrollView.frame);
-    NSUInteger idx = self.scrollView.contentOffset.x / w;
-    UITextField* tf = [self.textFields objectAtIndex:idx];
-    CGFloat x = CGRectGetMinX(tf.frame);
-    CGPoint center = CGPointMake(x, 0.0f);
-    // Scroll to selected item
-    [self.scrollView setContentOffset:center animated:YES];
+    CGFloat pageWidth = w * 0.5f;
+    NSUInteger idx = round(offset / pageWidth);
+    if (idx > self.textFields.count - 1) {
+        idx = self.textFields.count - 1;
+    }
+    targetContentOffset->x = idx * pageWidth;
     // Notify observer
     if(delegateRespondsTo.didSelectItem) {
         [self.delegate slideSelector:self didSelectItemAtIndex:idx];
     }
-    self.scrollView.backgroundColor = [UIColor clearColor];
-    self.decelerating = NO;
+    
+    if(idx != self.activeIndex) {
+        UITextField *tf = [self.textFields objectAtIndex:self.activeIndex];
+        tf.transform = CGAffineTransformIdentity;
+        tf = [self.textFields objectAtIndex:idx];
+        [UIView animateWithDuration:GSBackColorChangeAnimationTime animations:^{
+            tf.transform = CGAffineTransformScale(tf.transform, 1.5, 1.5);
+        }];
+        self.activeIndex = idx;
+    }
 }
 
 #pragma mark - GestureRecognizer Delegate
@@ -154,20 +217,13 @@
 
 - (void)holdGesture:(UIGestureRecognizer *)gesture
 {
-    switch (gesture.state) {
-        case UIGestureRecognizerStateBegan:
-            self.scrollView.backgroundColor = [GSSlideSelectorStyleKit holdTouchColor];
-            break;
-        case UIGestureRecognizerStateEnded:
-        case UIGestureRecognizerStateCancelled:
-        case UIGestureRecognizerStateFailed:
-            if(!self.decelerating) {
-                self.scrollView.backgroundColor = [UIColor clearColor];
-            }
-            break;
-            
-        default:
-            break;
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        [self toggleState:YES];
+    } else if((gesture.state == UIGestureRecognizerStateEnded ||
+              gesture.state == UIGestureRecognizerStateFailed ||
+              gesture.state == UIGestureRecognizerStateCancelled) &&
+              !self.decelerating) {
+        [self toggleState:NO];
     }
 }
 

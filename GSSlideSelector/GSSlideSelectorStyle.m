@@ -7,8 +7,8 @@
 
 #import "GSSlideSelectorStyle.h"
 
-static const NSInteger GSMainFontSize = 18;
-static const NSInteger GSSubFontSize = 16;
+static const NSInteger GSMainFontSize = 22;
+static const NSInteger GSSubFontSize = 18;
 
 @implementation GSSlideSelectorStyle
 
@@ -57,7 +57,7 @@ static const NSInteger GSSubFontSize = 16;
     tField.textColor = [UIColor blackColor];
     tField.returnKeyType = UIReturnKeyDone;
     tField.userInteractionEnabled = NO;
-    tField.font = self.mainFont;
+    tField.font = self.subFont;
     tField.opaque = YES;
     tField.text = text;
     return tField;
