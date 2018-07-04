@@ -14,7 +14,6 @@
 		BE1582C420E9641700C98D25 /* Neptune.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582C120E9641700C98D25 /* Neptune.png */; };
 		BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062520E761FC00D771F6 /* AppDelegate.m */; };
 		BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062820E761FC00D771F6 /* FirstViewController.m */; };
-		BE2A062C20E761FD00D771F6 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062B20E761FD00D771F6 /* SecondViewController.m */; };
 		BE2A062F20E761FD00D771F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A062D20E761FD00D771F6 /* Main.storyboard */; };
 		BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063020E761FE00D771F6 /* Assets.xcassets */; };
 		BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */; };
@@ -38,8 +37,6 @@
 		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BE2A062720E761FC00D771F6 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		BE2A062820E761FC00D771F6 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		BE2A062A20E761FD00D771F6 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		BE2A062B20E761FD00D771F6 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		BE2A062E20E761FD00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE2A063020E761FE00D771F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE2A063320E761FE00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,8 +108,6 @@
 				BE2A062520E761FC00D771F6 /* AppDelegate.m */,
 				BE2A062720E761FC00D771F6 /* FirstViewController.h */,
 				BE2A062820E761FC00D771F6 /* FirstViewController.m */,
-				BE2A062A20E761FD00D771F6 /* SecondViewController.h */,
-				BE2A062B20E761FD00D771F6 /* SecondViewController.m */,
 				BE2A062D20E761FD00D771F6 /* Main.storyboard */,
 				BE2A063020E761FE00D771F6 /* Assets.xcassets */,
 				BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */,
@@ -212,7 +207,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE15829020E8C38F00C98D25 /* GSSlidingSelectorViewController.m in Sources */,
-				BE2A062C20E761FD00D771F6 /* SecondViewController.m in Sources */,
 				BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */,
 				BE2A063720E761FE00D771F6 /* main.m in Sources */,
 				BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */,
