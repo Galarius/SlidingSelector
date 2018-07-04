@@ -1,6 +1,6 @@
-# GSSlideSelector
+# GSSlidingSelector
 
-[![GitHub license](https://img.shields.io/github/license/galarius/GSSlideSelector.svg)](https://github.com/galarius/GSSlideSelector/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/galarius/GSSlidingSelector.svg)](https://github.com/galarius/GSSlidingSelector/blob/master/LICENSE)
 ![platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![language](https://img.shields.io/badge/language-objc-orange.svg)
 
@@ -10,20 +10,20 @@ Controller for selecting items with swipe gestures.
 
 ## Usage
 
-1. Add folder `GSSlideSelector` to your project.
+1. Add folder `GSSlidingSelector` to your project.
 
-2. In your `UIViewController` import `GSSlideSelectorViewController.h`:
+2. In your `UIViewController` import `GSSlidingSelectorViewController.h`:
 
     ```objc
-    #import "GSSlideSelectorViewController.h"
+    #import "GSSlidingSelectorViewController.h"
     ```
 
 3. Extend your interface like this:
 
     ```objc
-    @interface SomeViewController () <GSSlideSelectorDelegate>
+    @interface SomeViewController () <GSSlidingSelectorDelegate>
 
-    @property (strong, nonatomic) GSSlideSelectorViewController *selector;
+    @property (strong, nonatomic) GSSlidingSelectorViewController *selector;
     @property (strong, nonatomic) NSArray *items;
 
     @end
@@ -38,7 +38,7 @@ Controller for selecting items with swipe gestures.
         // Do any additional setup after loading the view, typically from a nib.
         
         _items = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4"];
-        _selector = [[GSSlideSelectorViewController alloc] init];
+        _selector = [[GSSlidingSelectorViewController alloc] init];
         self.selector.delegate = self;
         [self addChildViewController:self.selector];
         [self.view addSubview:self.selector.view];
@@ -58,22 +58,22 @@ Controller for selecting items with swipe gestures.
     }
     ```
 
-6. Implement `GSSlideSelectorDelegate` protocol methods:
+6. Implement `GSSlidingSelectorDelegate` protocol methods:
 
     ```objc
-    #pragma mark - GSSlideSelectorDelegate
+    #pragma mark - GSSlidingSelectorDelegate
 
-    - (NSUInteger)numberOfItemsInSlideSelector:(GSSlideSelectorViewController*)selector
+    - (NSUInteger)numberOfItemsInSlideSelector:(GSSlidingSelectorViewController*)selector
     {
         return self.items.count;
     }
 
-    - (NSString *)slideSelector:(GSSlideSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index
+    - (NSString *)slideSelector:(GSSlidingSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index
     {
         return [self.items objectAtIndex:index];
     }
 
-    - (void)slideSelector:(GSSlideSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
+    - (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
     {
         NSLog(@"Selected item at index: %lu (%@)", (unsigned long)index, [self.items objectAtIndex:index]);
         // Do something depending on selected item ...
@@ -82,4 +82,4 @@ Controller for selecting items with swipe gestures.
 
 ## License
 
-> GSSlideSelector is released under the MIT license. See [LICENSE](https://github.com/galarius/GSSlideSelector/blob/master/LICENSE) for details.
+> GSSlidingSelector is released under the MIT license. See [LICENSE](https://github.com/galarius/GSSlidingSelector/blob/master/LICENSE) for details.
