@@ -5,12 +5,12 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlideSelectorViewController.h"
-#import "GSSlideSelectorStyle.h"
+#import "GSSlidingSelectorViewController.h"
+#import "GSSlidingSelectorStyle.h"
 
 const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 
-@interface GSSlideSelectorViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface GSSlidingSelectorViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 /*!
  *  \brief ScrollView to slide items horizontally
@@ -35,7 +35,7 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 
 @end
 
-@implementation GSSlideSelectorViewController
+@implementation GSSlidingSelectorViewController
 {
     struct {
         unsigned int numberOfItems:1;
@@ -54,7 +54,7 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
     [self reloadData];
 }
 
-- (void)setDelegate:(id<GSSlideSelectorDelegate>)delegate
+- (void)setDelegate:(id<GSSlidingSelectorDelegate>)delegate
 {
     if (_delegate != delegate) {
         _delegate = delegate;
@@ -72,7 +72,7 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 
 - (void)setupView
 {
-    self.view.backgroundColor = [GSSlideSelectorStyleKit mainColor];
+    self.view.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
     
     _scrollView = [[UIScrollView alloc] init];
     self.scrollView.delegate = self;
@@ -104,9 +104,13 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
         self.textFields = [NSMutableArray arrayWithCapacity:count];
         for(int i = 0; i < count; ++i) {
             NSString *title = [self.delegate slideSelector:self titleForItemAtIndex:i];
-            UITextField *textField = [GSSlideSelectorStyleKit createTextFieldWithText:title];
+            UITextField *textField = [GSSlidingSelectorStyleKit createTextFieldWithText:title];
             [self.textFields addObject:textField];
             [self.scrollView addSubview:textField];
+        }
+        if(self.textFields.count) {
+            UITextField *tf = [self.textFields firstObject];
+            tf.transform = CGAffineTransformScale(tf.transform, 1.5, 1.5);
         }
     }
 }
@@ -156,7 +160,7 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 {
     [UIView animateWithDuration:GSBackColorChangeAnimationTime animations:^{
         if(updating) {
-            self.scrollView.backgroundColor = [GSSlideSelectorStyleKit holdTouchColor];
+            self.scrollView.backgroundColor = GSSlidingSelectorStyleKit.holdTouchColor;
             [self hideNeighbors:NO];
         } else {
             self.scrollView.backgroundColor = [UIColor clearColor];

@@ -7,23 +7,23 @@
 
 #import <Foundation/Foundation.h>
 
-@class GSSlideSelectorViewController;
+@class GSSlidingSelectorViewController;
 
-@protocol GSSlideSelectorDelegate <NSObject>
+@protocol GSSlidingSelectorDelegate <NSObject>
 
 @required
 /*!
  * \brief Number of items that will be displayed in slide selector.
  */
-- (NSUInteger)numberOfItemsInSlideSelector:(GSSlideSelectorViewController*)selector;
+- (NSUInteger)numberOfItemsInSlideSelector:(GSSlidingSelectorViewController*)selector;
 /*!
  * \brief Title for each item
  * \see numberOfItemsInSlideSelector:
  */
-- (NSString *)slideSelector:(GSSlideSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index;
+- (NSString *)slideSelector:(GSSlidingSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index;
 /*!
  * \brief Called when item selected in slide selector
  */
-- (void)slideSelector:(GSSlideSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index;
+- (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index;
 
 @end

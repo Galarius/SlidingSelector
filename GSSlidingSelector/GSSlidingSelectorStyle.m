@@ -5,12 +5,12 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlideSelectorStyle.h"
+#import "GSSlidingSelectorStyle.h"
 
 static const NSInteger GSMainFontSize = 22;
 static const NSInteger GSSubFontSize = 18;
 
-@implementation GSSlideSelectorStyle
+@implementation GSSlidingSelectorStyle
 
 - (id)init
 {

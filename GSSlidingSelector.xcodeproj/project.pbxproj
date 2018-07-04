@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE15829020E8C38F00C98D25 /* GSSlideSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE15828E20E8C38F00C98D25 /* GSSlideSelectorViewController.m */; };
-		BE1582B320E9002A00C98D25 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B020E9002A00C98D25 /* titilliumweb-semibold.ttf */; };
-		BE1582B420E9002A00C98D25 /* ofl.txt in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B120E9002A00C98D25 /* ofl.txt */; };
-		BE1582B520E9002A00C98D25 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B220E9002A00C98D25 /* titilliumweb-regular.ttf */; };
+		BE15829020E8C38F00C98D25 /* GSSlidingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */; };
 		BE1582BD20E9624900C98D25 /* Moon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B920E9624900C98D25 /* Moon.png */; };
 		BE1582C220E9641700C98D25 /* Earth.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582BF20E9641600C98D25 /* Earth.png */; };
 		BE1582C320E9641700C98D25 /* Mars.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582C020E9641600C98D25 /* Mars.png */; };
@@ -22,21 +19,21 @@
 		BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063020E761FE00D771F6 /* Assets.xcassets */; };
 		BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */; };
 		BE2A063720E761FE00D771F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A063620E761FE00D771F6 /* main.m */; };
-		BE2A065C20E788AB00D771F6 /* GSSlideSelectorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A065A20E788AB00D771F6 /* GSSlideSelectorStyle.m */; };
+		BE2A065C20E788AB00D771F6 /* GSSlidingSelectorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A065A20E788AB00D771F6 /* GSSlidingSelectorStyle.m */; };
+		BED0AF6F20ED452D008EC203 /* ofl.txt in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6C20ED452D008EC203 /* ofl.txt */; };
+		BED0AF7020ED452D008EC203 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */; };
+		BED0AF7120ED452D008EC203 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BE15828C20E8C2DE00C98D25 /* GSSlideSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlideSelectorDelegate.h; sourceTree = "<group>"; };
-		BE15828D20E8C38F00C98D25 /* GSSlideSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlideSelectorViewController.h; sourceTree = "<group>"; };
-		BE15828E20E8C38F00C98D25 /* GSSlideSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlideSelectorViewController.m; sourceTree = "<group>"; };
-		BE1582B020E9002A00C98D25 /* titilliumweb-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "titilliumweb-semibold.ttf"; sourceTree = "<group>"; };
-		BE1582B120E9002A00C98D25 /* ofl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ofl.txt; sourceTree = "<group>"; };
-		BE1582B220E9002A00C98D25 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "titilliumweb-regular.ttf"; sourceTree = "<group>"; };
+		BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDelegate.h; sourceTree = "<group>"; };
+		BE15828D20E8C38F00C98D25 /* GSSlidingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorViewController.h; sourceTree = "<group>"; };
+		BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorViewController.m; sourceTree = "<group>"; };
 		BE1582B920E9624900C98D25 /* Moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon.png; sourceTree = "<group>"; };
 		BE1582BF20E9641600C98D25 /* Earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Earth.png; sourceTree = "<group>"; };
 		BE1582C020E9641600C98D25 /* Mars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mars.png; sourceTree = "<group>"; };
 		BE1582C120E9641700C98D25 /* Neptune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Neptune.png; sourceTree = "<group>"; };
-		BE2A062120E761FC00D771F6 /* GSSlideSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlideSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2A062120E761FC00D771F6 /* GSSlidingSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlidingSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2A062420E761FC00D771F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BE2A062720E761FC00D771F6 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -48,8 +45,11 @@
 		BE2A063320E761FE00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE2A063520E761FE00D771F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE2A063620E761FE00D771F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE2A065A20E788AB00D771F6 /* GSSlideSelectorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlideSelectorStyle.m; sourceTree = "<group>"; };
-		BE2A065E20E78C1F00D771F6 /* GSSlideSelectorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlideSelectorStyle.h; sourceTree = "<group>"; };
+		BE2A065A20E788AB00D771F6 /* GSSlidingSelectorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorStyle.m; sourceTree = "<group>"; };
+		BE2A065E20E78C1F00D771F6 /* GSSlidingSelectorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorStyle.h; sourceTree = "<group>"; };
+		BED0AF6C20ED452D008EC203 /* ofl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ofl.txt; path = GSSlidingSelectorExample/Fonts/ofl.txt; sourceTree = SOURCE_ROOT; };
+		BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-regular.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-regular.ttf"; sourceTree = SOURCE_ROOT; };
+		BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-semibold.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-semibold.ttf"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +66,9 @@
 		BE15829420E8E9E100C98D25 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				BE1582B120E9002A00C98D25 /* ofl.txt */,
-				BE1582B220E9002A00C98D25 /* titilliumweb-regular.ttf */,
-				BE1582B020E9002A00C98D25 /* titilliumweb-semibold.ttf */,
+				BED0AF6C20ED452D008EC203 /* ofl.txt */,
+				BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */,
+				BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */,
 			);
 			name = Fonts;
 			path = GSSlideSelectorExample/Fonts;
@@ -89,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				BE15829420E8E9E100C98D25 /* Fonts */,
-				BE2A063D20E7625200D771F6 /* GSSlideSelector */,
-				BE2A062320E761FC00D771F6 /* GSSlideSelectorExample */,
+				BE2A063D20E7625200D771F6 /* GSSlidingSelector */,
+				BE2A062320E761FC00D771F6 /* GSSlidingSelectorExample */,
 				BE2A062220E761FC00D771F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,12 +98,12 @@
 		BE2A062220E761FC00D771F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE2A062120E761FC00D771F6 /* GSSlideSelector.app */,
+				BE2A062120E761FC00D771F6 /* GSSlidingSelector.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BE2A062320E761FC00D771F6 /* GSSlideSelectorExample */ = {
+		BE2A062320E761FC00D771F6 /* GSSlidingSelectorExample */ = {
 			isa = PBXGroup;
 			children = (
 				BE1582B620E9624900C98D25 /* Images */,
@@ -119,27 +119,27 @@
 				BE2A063520E761FE00D771F6 /* Info.plist */,
 				BE2A063620E761FE00D771F6 /* main.m */,
 			);
-			path = GSSlideSelectorExample;
+			path = GSSlidingSelectorExample;
 			sourceTree = "<group>";
 		};
-		BE2A063D20E7625200D771F6 /* GSSlideSelector */ = {
+		BE2A063D20E7625200D771F6 /* GSSlidingSelector */ = {
 			isa = PBXGroup;
 			children = (
-				BE15828D20E8C38F00C98D25 /* GSSlideSelectorViewController.h */,
-				BE15828E20E8C38F00C98D25 /* GSSlideSelectorViewController.m */,
-				BE15828C20E8C2DE00C98D25 /* GSSlideSelectorDelegate.h */,
-				BE2A065E20E78C1F00D771F6 /* GSSlideSelectorStyle.h */,
-				BE2A065A20E788AB00D771F6 /* GSSlideSelectorStyle.m */,
+				BE15828D20E8C38F00C98D25 /* GSSlidingSelectorViewController.h */,
+				BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */,
+				BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */,
+				BE2A065E20E78C1F00D771F6 /* GSSlidingSelectorStyle.h */,
+				BE2A065A20E788AB00D771F6 /* GSSlidingSelectorStyle.m */,
 			);
-			path = GSSlideSelector;
+			path = GSSlidingSelector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE2A062020E761FC00D771F6 /* GSSlideSelector */ = {
+		BE2A062020E761FC00D771F6 /* GSSlidingSelector */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE2A063A20E761FE00D771F6 /* Build configuration list for PBXNativeTarget "GSSlideSelector" */;
+			buildConfigurationList = BE2A063A20E761FE00D771F6 /* Build configuration list for PBXNativeTarget "GSSlidingSelector" */;
 			buildPhases = (
 				BE2A061D20E761FC00D771F6 /* Sources */,
 				BE2A061E20E761FC00D771F6 /* Frameworks */,
@@ -149,9 +149,9 @@
 			);
 			dependencies = (
 			);
-			name = GSSlideSelector;
+			name = GSSlidingSelector;
 			productName = GSQuickSelector;
-			productReference = BE2A062120E761FC00D771F6 /* GSSlideSelector.app */;
+			productReference = BE2A062120E761FC00D771F6 /* GSSlidingSelector.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BE2A061C20E761FC00D771F6 /* Build configuration list for PBXProject "GSSlideSelector" */;
+			buildConfigurationList = BE2A061C20E761FC00D771F6 /* Build configuration list for PBXProject "GSSlidingSelector" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -181,7 +181,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE2A062020E761FC00D771F6 /* GSSlideSelector */,
+				BE2A062020E761FC00D771F6 /* GSSlidingSelector */,
 			);
 		};
 /* End PBXProject section */
@@ -193,13 +193,13 @@
 			files = (
 				BE1582C320E9641700C98D25 /* Mars.png in Resources */,
 				BE1582C220E9641700C98D25 /* Earth.png in Resources */,
-				BE1582B520E9002A00C98D25 /* titilliumweb-regular.ttf in Resources */,
-				BE1582B320E9002A00C98D25 /* titilliumweb-semibold.ttf in Resources */,
 				BE1582BD20E9624900C98D25 /* Moon.png in Resources */,
+				BED0AF7020ED452D008EC203 /* titilliumweb-regular.ttf in Resources */,
 				BE1582C420E9641700C98D25 /* Neptune.png in Resources */,
-				BE1582B420E9002A00C98D25 /* ofl.txt in Resources */,
 				BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */,
+				BED0AF7120ED452D008EC203 /* titilliumweb-semibold.ttf in Resources */,
 				BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */,
+				BED0AF6F20ED452D008EC203 /* ofl.txt in Resources */,
 				BE2A062F20E761FD00D771F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,12 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE15829020E8C38F00C98D25 /* GSSlideSelectorViewController.m in Sources */,
+				BE15829020E8C38F00C98D25 /* GSSlidingSelectorViewController.m in Sources */,
 				BE2A062C20E761FD00D771F6 /* SecondViewController.m in Sources */,
 				BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */,
 				BE2A063720E761FE00D771F6 /* main.m in Sources */,
 				BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */,
-				BE2A065C20E788AB00D771F6 /* GSSlideSelectorStyle.m in Sources */,
+				BE2A065C20E788AB00D771F6 /* GSSlidingSelectorStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +358,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/GSSlideSelectorExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/GSSlideSelectorExample/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -393,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE2A061C20E761FC00D771F6 /* Build configuration list for PBXProject "GSSlideSelector" */ = {
+		BE2A061C20E761FC00D771F6 /* Build configuration list for PBXProject "GSSlidingSelector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE2A063820E761FE00D771F6 /* Debug */,
@@ -402,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE2A063A20E761FE00D771F6 /* Build configuration list for PBXNativeTarget "GSSlideSelector" */ = {
+		BE2A063A20E761FE00D771F6 /* Build configuration list for PBXNativeTarget "GSSlidingSelector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE2A063B20E761FE00D771F6 /* Debug */,

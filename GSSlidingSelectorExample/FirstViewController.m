@@ -6,13 +6,13 @@
  */
 
 #import "FirstViewController.h"
-#import "GSSlideSelectorViewController.h"
-#import "GSSlideSelectorStyle.h"
+#import "GSSlidingSelectorViewController.h"
+#import "GSSlidingSelectorStyle.h"
 
-@interface FirstViewController () <GSSlideSelectorDelegate>
+@interface FirstViewController () <GSSlidingSelectorDelegate>
 
 @property (strong, nonatomic) NSArray *items;
-@property (strong, nonatomic) GSSlideSelectorViewController *selector;
+@property (strong, nonatomic) GSSlidingSelectorViewController *selector;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 
@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _items = @[@"Earth", @"Moon", @"Mars", @"Neptune"];
-    _selector = [[GSSlideSelectorViewController alloc] init];
+    _selector = [[GSSlidingSelectorViewController alloc] init];
     self.selector.delegate = self;
     [self addChildViewController:self.selector];
     [self.view addSubview:self.selector.view];
@@ -34,7 +34,7 @@
     
     self.imgView.image = [UIImage imageNamed:[self.items firstObject]];
     
-    self.view.backgroundColor = GSSlideSelectorStyleKit.mainColor;
+    self.view.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
 }
 
 - (void)viewWillLayoutSubviews
@@ -52,20 +52,27 @@
 
 #pragma mark - GSSlideSelectorDelegate
 
-- (NSUInteger)numberOfItemsInSlideSelector:(GSSlideSelectorViewController*)selector
+- (NSUInteger)numberOfItemsInSlideSelector:(GSSlidingSelectorViewController*)selector
 {
     return self.items.count;
 }
 
-- (NSString *)slideSelector:(GSSlideSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index
+- (NSString *)slideSelector:(GSSlidingSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index
 {
     return [self.items objectAtIndex:index];
 }
 
-- (void)slideSelector:(GSSlideSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
+- (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
 {
     NSLog(@"Selected item at index: %lu (%@)", (unsigned long)index, [self.items objectAtIndex:index]);
-    self.imgView.image = [UIImage imageNamed:[self.items objectAtIndex:index]];
+    
+    __weak typeof(self) weakSelf = self;
+    [UIView transitionWithView:self.imgView
+                      duration:0.1f
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        weakSelf.imgView.image = [UIImage imageNamed:[self.items objectAtIndex:index]];
+                    } completion:nil];
 }
 
 @end

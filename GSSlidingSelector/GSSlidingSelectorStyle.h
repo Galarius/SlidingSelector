@@ -7,9 +7,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define GSSlideSelectorStyleKit [GSSlideSelectorStyle sharedInstance]
+#define GSSlidingSelectorStyleKit [GSSlidingSelectorStyle sharedInstance]
 
-@interface GSSlideSelectorStyle : NSObject
+@interface GSSlidingSelectorStyle : NSObject
 
 @property (nonatomic, strong) UIFont *mainFont;
 @property (nonatomic, strong) UIFont *subFont;

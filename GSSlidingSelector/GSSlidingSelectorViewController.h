@@ -5,13 +5,14 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlideSelectorDelegate.h"
+#import "GSSlidingSelectorDelegate.h"
+#import "GSSlidingSelectorDelegate.h"
 
 #import <UIKit/UIKit.h>
 
-@interface GSSlideSelectorViewController : UIViewController
+@interface GSSlidingSelectorViewController : UIViewController
 
-@property(weak, nonatomic) id<GSSlideSelectorDelegate> delegate;
+@property(weak, nonatomic) id<GSSlidingSelectorDelegate> delegate;
 
 /*!
  * \brief Initiate data reloading
