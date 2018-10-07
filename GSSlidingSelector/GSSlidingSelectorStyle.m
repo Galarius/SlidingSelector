@@ -7,8 +7,7 @@
 
 #import "GSSlidingSelectorStyle.h"
 
-static const NSInteger GSMainFontSize = 22;
-static const NSInteger GSSubFontSize = 18;
+static const NSInteger GSMainFontSize = 32;
 
 @implementation GSSlidingSelectorStyle
 
@@ -23,12 +22,10 @@ static const NSInteger GSSubFontSize = 18;
         NSUInteger index = [familyNames indexOfObject:customFont];
         if(index != NSNotFound) {
             NSLog(@"%@ is installed!", customFont);
-            _mainFont = [UIFont fontWithName:@"titilliumweb-semibold" size:GSMainFontSize];
-            _subFont = [UIFont fontWithName:@"titilliumweb-regular" size:GSSubFontSize];
+            _mainFont = [UIFont fontWithName:@"titilliumweb-regular" size:GSMainFontSize];
         } else {
             NSLog(@"%@ is not installed! Selecting 'Helvetica'...", customFont);
             _mainFont = [UIFont fontWithName:@"Helvetica" size:GSMainFontSize];
-            _subFont = [UIFont fontWithName:@"Helvetica" size:GSSubFontSize];
         }
         // Setup other style consts
         _mainColor = [UIColor colorWithRed:240/255.0f green:235/255.0f blue:180/255.0f alpha:1.0f];
@@ -57,7 +54,7 @@ static const NSInteger GSSubFontSize = 18;
     tField.textColor = [UIColor blackColor];
     tField.returnKeyType = UIReturnKeyDone;
     tField.userInteractionEnabled = NO;
-    tField.font = self.subFont;
+    tField.font = self.mainFont;
     tField.opaque = YES;
     tField.text = text;
     return tField;

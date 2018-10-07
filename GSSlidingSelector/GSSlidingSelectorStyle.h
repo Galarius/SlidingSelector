@@ -12,7 +12,6 @@
 @interface GSSlidingSelectorStyle : NSObject
 
 @property (nonatomic, strong) UIFont *mainFont;
-@property (nonatomic, strong) UIFont *subFont;
 @property (nonatomic, strong) UIColor *mainColor;
 @property (nonatomic, strong) UIColor *holdTouchColor;
 
