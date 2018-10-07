@@ -8,7 +8,11 @@
 #import "GSSlidingSelectorViewController.h"
 #import "GSSlidingSelectorStyle.h"
 
-const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
+const static CGFloat GSTransformTextFieldAnimationTime = 0.15f;
+const static CGFloat GSHighlightBackColorAnimationTime = 0.05f;
+const static CGFloat GSRestoreBackColorAnimationTime   = 0.55f;
+
+const NSUInteger GSMaximumNumberOfElements = 25;
 
 @interface GSSlidingSelectorViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
@@ -28,10 +32,6 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
  * \brief Flag to know if scroll view's decelerating is active
  */
 @property(nonatomic) BOOL decelerating;
-/*!
- * \brief Index to know the last active item
- */
-@property(nonatomic) NSUInteger activeIndex;
 
 @end
 
@@ -40,6 +40,9 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
     struct {
         unsigned int numberOfItems:1;
         unsigned int titleForItem:1;
+    } dataSourceRespondsTo;
+    
+    struct {
         unsigned int didSelectItem:1;
     } delegateRespondsTo;
 }
@@ -48,10 +51,39 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 {
     [super viewDidLoad];
     
-    self.activeIndex = 0;
+    _selectedIndex = 0;
     
     [self setupView];
-    [self reloadData];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGFloat w = CGRectGetWidth(self.view.frame);
+    CGFloat h = CGRectGetHeight(self.view.frame);
+    self.scrollView.frame = CGRectMake(0, 0, w, h);
+    self.scrollView.contentSize = CGSizeMake(w, h);
+    
+    if(self.textFields.count) {
+        /*
+         *   |       ][    active    ][      |       ][              ]
+         *         <------------>
+         *            1/2 * w
+         */
+        CGFloat w2 = w * 0.5f;
+        CGFloat w4 = w2 * 0.5f;
+        CGFloat x = w4;
+        for(int i = 0; i < self.textFields.count; ++i) {
+            UITextField *tf = [self.textFields objectAtIndex:i];
+            tf.frame = CGRectMake(x, 0, w2, h);
+            tf.alpha = (i == self.selectedIndex);
+            x += w2;
+        }
+        self.scrollView.contentSize = CGSizeMake(x + w4, h);
+        CGPoint target = CGPointMake(self.selectedIndex * w2, 0);
+        [self.scrollView setContentOffset:target animated:NO];
+    }
 }
 
 - (void)setDelegate:(id<GSSlidingSelectorDelegate>)delegate
@@ -59,15 +91,35 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
     if (_delegate != delegate) {
         _delegate = delegate;
         if(_delegate) {
-            delegateRespondsTo.numberOfItems = [self.delegate respondsToSelector:@selector(numberOfItemsInSlideSelector:)];
-            delegateRespondsTo.titleForItem = [self.delegate respondsToSelector:@selector(slideSelector:titleForItemAtIndex:)];
             delegateRespondsTo.didSelectItem = [self.delegate respondsToSelector:@selector(slideSelector:didSelectItemAtIndex:)];
-        } else {
-            delegateRespondsTo.numberOfItems = NO;
-            delegateRespondsTo.titleForItem = NO;
-            delegateRespondsTo.didSelectItem = NO;
         }
     }
+}
+
+- (void)setDataSource:(id<GSSlidingSelectorDataSource>)dataSource
+{
+    if (_dataSource != dataSource) {
+        _dataSource = dataSource;
+        if(_dataSource) {
+            dataSourceRespondsTo.numberOfItems = [self.delegate respondsToSelector:@selector(numberOfItemsInSlideSelector:)];
+            dataSourceRespondsTo.titleForItem  = [self.delegate respondsToSelector:@selector(slideSelector:titleForItemAtIndex:)];
+        }
+    }
+}
+
+- (void)setSelectedIndex:(NSUInteger)selectedIndex animated:(BOOL)animated
+{
+    if(selectedIndex != _selectedIndex && selectedIndex < self.textFields.count) {
+        [self transformTextFieldAtIndex:self.selectedIndex animated:animated];
+        _selectedIndex = selectedIndex;
+        [self restoreTextFieldAtIndex:self.selectedIndex animated:animated];
+        [self scrollToIndex:selectedIndex animated:animated];
+    }
+}
+
+- (void)setSelectedIndex:(NSUInteger)selectedIndex
+{
+    [self setSelectedIndex:selectedIndex animated:NO];
 }
 
 - (void)setupView
@@ -81,7 +133,7 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.scrollView];
-    
+
     // Configure the press and hold gesture recognizer
     UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc]
                                         initWithTarget:self
@@ -93,55 +145,36 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 
 - (void)reloadData
 {
-    if(delegateRespondsTo.numberOfItems && delegateRespondsTo.titleForItem) {
+    if(dataSourceRespondsTo.numberOfItems && dataSourceRespondsTo.titleForItem) {
         if(self.textFields.count) {
             // Remove all previously added text fields
             [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
             [self.textFields removeAllObjects];
         }
         // Recreate scroll view content
-        NSUInteger count = [self.delegate numberOfItemsInSlideSelector:self];
+        NSUInteger count = [self.dataSource numberOfItemsInSlideSelector:self];
+        
+        if(count > GSMaximumNumberOfElements) {
+            NSLog(@"[GSSlidingSelectorViewController] Error: Maximum number of elements is %lu, requested: %lu. Only %lu elements will be loaded.",
+                  (unsigned long)GSMaximumNumberOfElements,
+                  (unsigned long)count,
+                  (unsigned long)GSMaximumNumberOfElements);
+            count = GSMaximumNumberOfElements;
+        }
+        
         self.textFields = [NSMutableArray arrayWithCapacity:count];
         for(int i = 0; i < count; ++i) {
-            NSString *title = [self.delegate slideSelector:self titleForItemAtIndex:i];
+            NSString *title = [self.dataSource slideSelector:self titleForItemAtIndex:i];
             UITextField *textField = [GSSlidingSelectorStyleKit createTextFieldWithText:title];
+            textField.transform = CGAffineTransformScale(textField.transform, 0.5, 0.5);
             [self.textFields addObject:textField];
             [self.scrollView addSubview:textField];
         }
         if(self.textFields.count) {
-            UITextField *tf = [self.textFields firstObject];
-            tf.transform = CGAffineTransformScale(tf.transform, 1.5, 1.5);
+            [self restoreTextFieldAtIndex:self.selectedIndex animated:YES];
         }
+        [self.view setNeedsLayout];
     }
-}
-
-- (void)viewWillLayoutSubviews
-{
-    [super viewWillLayoutSubviews];
-    
-    CGFloat w = CGRectGetWidth(self.view.frame);
-    CGFloat h = CGRectGetHeight(self.view.frame);
-    self.scrollView.frame = CGRectMake(0, 0, w, h);
-    
-    /*
-     *   |       ][    active    ][      |       ][              ]
-     *         <------------>
-     *            1/2 * w
-     */
-    CGFloat w2 = w * 0.5f;
-    CGFloat w4 = w2 * 0.5f;
-    
-    UITextField *tField = [self.textFields firstObject];
-    tField.frame = CGRectMake(w4, 0, w2, h);
-    CGFloat x = w4 + w2;
-    
-    for(int i = 1; i < self.textFields.count; ++i) {
-        tField = [self.textFields objectAtIndex:i];
-        tField.frame = CGRectMake(x, 0, w2, h);
-        tField.alpha = 0;
-        x += w2;
-    }
-    self.scrollView.contentSize = CGSizeMake(x + w4, h);
 }
 
 #pragma mark - State
@@ -150,7 +183,7 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 {
     for(int i = 0; i < self.scrollView.subviews.count; ++i) {
         UIView* subview = [self.scrollView.subviews objectAtIndex:i];
-        if( i != self.activeIndex && [subview isKindOfClass:[UITextField class]]) {
+        if( i != self.selectedIndex && [subview isKindOfClass:[UITextField class]]) {
             subview.alpha = !hidden;
         }
     }
@@ -158,15 +191,49 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
 
 - (void)toggleState:(BOOL)updating
 {
-    [UIView animateWithDuration:GSBackColorChangeAnimationTime animations:^{
-        if(updating) {
+    if(updating) {
+        [UIView animateWithDuration:GSHighlightBackColorAnimationTime animations:^{
             self.scrollView.backgroundColor = GSSlidingSelectorStyleKit.holdTouchColor;
             [self hideNeighbors:NO];
-        } else {
+        }];
+    } else {
+        [UIView animateWithDuration:GSRestoreBackColorAnimationTime animations:^{
             self.scrollView.backgroundColor = [UIColor clearColor];
             [self hideNeighbors:YES];
-        }
-    }];
+        }];
+    }
+}
+
+- (void)restoreTextFieldAtIndex:(NSUInteger)index animated:(BOOL)animated
+{
+    UITextField *tf = [self.textFields objectAtIndex:index];
+    if(animated) {
+        [UIView animateWithDuration:GSTransformTextFieldAnimationTime animations:^{
+            tf.transform = CGAffineTransformIdentity;
+        }];
+    } else {
+        tf.transform = CGAffineTransformIdentity;
+    }
+}
+
+- (void)transformTextFieldAtIndex:(NSUInteger)index animated:(BOOL)animated
+{
+    UITextField *tf = [self.textFields objectAtIndex:index];
+    if(animated) {
+        [UIView animateWithDuration:GSTransformTextFieldAnimationTime animations:^{
+            tf.transform = CGAffineTransformScale(tf.transform, 0.5, 0.5);
+        }];
+    } else {
+        tf.transform = CGAffineTransformScale(tf.transform, 0.5, 0.5);
+    }
+}
+
+- (void)scrollToIndex:(NSUInteger)index animated:(BOOL)animated
+{
+    CGFloat w = CGRectGetWidth(self.view.frame);
+    CGFloat w2 = w * 0.5f;
+    CGPoint target = CGPointMake(index * w2, 0);
+    [self.scrollView setContentOffset:target animated:animated];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -189,24 +256,18 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
     CGFloat offset = scrollView.contentOffset.x + velocity.x * 60.0f;
     CGFloat w = CGRectGetWidth(self.scrollView.frame);
     CGFloat pageWidth = w * 0.5f;
-    NSUInteger idx = round(offset / pageWidth);
-    if (idx > self.textFields.count - 1) {
-        idx = self.textFields.count - 1;
-    }
+    NSInteger idx = MAX(0, round(offset / pageWidth));
+    idx = MIN(idx, self.textFields.count - 1);
     targetContentOffset->x = idx * pageWidth;
     // Notify observer
     if(delegateRespondsTo.didSelectItem) {
         [self.delegate slideSelector:self didSelectItemAtIndex:idx];
     }
     
-    if(idx != self.activeIndex) {
-        UITextField *tf = [self.textFields objectAtIndex:self.activeIndex];
-        tf.transform = CGAffineTransformIdentity;
-        tf = [self.textFields objectAtIndex:idx];
-        [UIView animateWithDuration:GSBackColorChangeAnimationTime animations:^{
-            tf.transform = CGAffineTransformScale(tf.transform, 1.5, 1.5);
-        }];
-        self.activeIndex = idx;
+    if(idx != self.selectedIndex) {
+        [self transformTextFieldAtIndex:self.selectedIndex animated:YES];
+        [self restoreTextFieldAtIndex:idx animated:YES];
+        _selectedIndex = idx;
     }
 }
 
@@ -217,10 +278,10 @@ const static CGFloat GSBackColorChangeAnimationTime = 0.05f;
     return YES;
 }
 
-#pragma mark - GestureRecognizer Action
+#pragma mark - Gesture Recognizer Handler
 
 - (void)holdGesture:(UIGestureRecognizer *)gesture
-{
+{    
     if (gesture.state == UIGestureRecognizerStateBegan) {
         [self toggleState:YES];
     } else if((gesture.state == UIGestureRecognizerStateEnded ||

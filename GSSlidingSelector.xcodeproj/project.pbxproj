@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BE15829020E8C38F00C98D25 /* GSSlidingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */; };
-		BE1582BD20E9624900C98D25 /* Moon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582B920E9624900C98D25 /* Moon.png */; };
-		BE1582C220E9641700C98D25 /* Earth.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582BF20E9641600C98D25 /* Earth.png */; };
-		BE1582C320E9641700C98D25 /* Mars.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582C020E9641600C98D25 /* Mars.png */; };
-		BE1582C420E9641700C98D25 /* Neptune.png in Resources */ = {isa = PBXBuildFile; fileRef = BE1582C120E9641700C98D25 /* Neptune.png */; };
 		BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062520E761FC00D771F6 /* AppDelegate.m */; };
 		BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062820E761FC00D771F6 /* FirstViewController.m */; };
 		BE2A062F20E761FD00D771F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A062D20E761FD00D771F6 /* Main.storyboard */; };
@@ -19,6 +15,15 @@
 		BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */; };
 		BE2A063720E761FE00D771F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A063620E761FE00D771F6 /* main.m */; };
 		BE2A065C20E788AB00D771F6 /* GSSlidingSelectorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A065A20E788AB00D771F6 /* GSSlidingSelectorStyle.m */; };
+		BE82D5DF216A25570038609E /* Jupiter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D6216A25560038609E /* Jupiter.jpg */; };
+		BE82D5E0216A25570038609E /* Saturn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D7216A25560038609E /* Saturn.jpg */; };
+		BE82D5E1216A25570038609E /* Pluto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D8216A25560038609E /* Pluto.jpg */; };
+		BE82D5E2216A25570038609E /* Earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D9216A25560038609E /* Earth.jpg */; };
+		BE82D5E3216A25570038609E /* Mercury.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DA216A25560038609E /* Mercury.jpg */; };
+		BE82D5E4216A25570038609E /* Neptune.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DB216A25560038609E /* Neptune.jpg */; };
+		BE82D5E5216A25570038609E /* Uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DC216A25560038609E /* Uranus.jpg */; };
+		BE82D5E6216A25570038609E /* Mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DD216A25560038609E /* Mars.jpg */; };
+		BE82D5E7216A25570038609E /* Venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DE216A25570038609E /* Venus.jpg */; };
 		BED0AF6F20ED452D008EC203 /* ofl.txt in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6C20ED452D008EC203 /* ofl.txt */; };
 		BED0AF7020ED452D008EC203 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */; };
 		BED0AF7120ED452D008EC203 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */; };
@@ -28,10 +33,6 @@
 		BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDelegate.h; sourceTree = "<group>"; };
 		BE15828D20E8C38F00C98D25 /* GSSlidingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorViewController.h; sourceTree = "<group>"; };
 		BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorViewController.m; sourceTree = "<group>"; };
-		BE1582B920E9624900C98D25 /* Moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon.png; sourceTree = "<group>"; };
-		BE1582BF20E9641600C98D25 /* Earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Earth.png; sourceTree = "<group>"; };
-		BE1582C020E9641600C98D25 /* Mars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mars.png; sourceTree = "<group>"; };
-		BE1582C120E9641700C98D25 /* Neptune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Neptune.png; sourceTree = "<group>"; };
 		BE2A062120E761FC00D771F6 /* GSSlidingSelector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlidingSelector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2A062420E761FC00D771F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -44,6 +45,16 @@
 		BE2A063620E761FE00D771F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE2A065A20E788AB00D771F6 /* GSSlidingSelectorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorStyle.m; sourceTree = "<group>"; };
 		BE2A065E20E78C1F00D771F6 /* GSSlidingSelectorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorStyle.h; sourceTree = "<group>"; };
+		BE82D5D52169F9DF0038609E /* GSSlidingSelectorDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDataSource.h; sourceTree = "<group>"; };
+		BE82D5D6216A25560038609E /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
+		BE82D5D7216A25560038609E /* Saturn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Saturn.jpg; sourceTree = "<group>"; };
+		BE82D5D8216A25560038609E /* Pluto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pluto.jpg; sourceTree = "<group>"; };
+		BE82D5D9216A25560038609E /* Earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth.jpg; sourceTree = "<group>"; };
+		BE82D5DA216A25560038609E /* Mercury.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mercury.jpg; sourceTree = "<group>"; };
+		BE82D5DB216A25560038609E /* Neptune.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Neptune.jpg; sourceTree = "<group>"; };
+		BE82D5DC216A25560038609E /* Uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Uranus.jpg; sourceTree = "<group>"; };
+		BE82D5DD216A25560038609E /* Mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mars.jpg; sourceTree = "<group>"; };
+		BE82D5DE216A25570038609E /* Venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Venus.jpg; sourceTree = "<group>"; };
 		BED0AF6C20ED452D008EC203 /* ofl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ofl.txt; path = GSSlidingSelectorExample/Fonts/ofl.txt; sourceTree = SOURCE_ROOT; };
 		BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-regular.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-regular.ttf"; sourceTree = SOURCE_ROOT; };
 		BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-semibold.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-semibold.ttf"; sourceTree = SOURCE_ROOT; };
@@ -74,10 +85,15 @@
 		BE1582B620E9624900C98D25 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				BE1582BF20E9641600C98D25 /* Earth.png */,
-				BE1582C020E9641600C98D25 /* Mars.png */,
-				BE1582C120E9641700C98D25 /* Neptune.png */,
-				BE1582B920E9624900C98D25 /* Moon.png */,
+				BE82D5D9216A25560038609E /* Earth.jpg */,
+				BE82D5D6216A25560038609E /* Jupiter.jpg */,
+				BE82D5DD216A25560038609E /* Mars.jpg */,
+				BE82D5DA216A25560038609E /* Mercury.jpg */,
+				BE82D5DB216A25560038609E /* Neptune.jpg */,
+				BE82D5D8216A25560038609E /* Pluto.jpg */,
+				BE82D5D7216A25560038609E /* Saturn.jpg */,
+				BE82D5DC216A25560038609E /* Uranus.jpg */,
+				BE82D5DE216A25570038609E /* Venus.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -120,9 +136,10 @@
 		BE2A063D20E7625200D771F6 /* GSSlidingSelector */ = {
 			isa = PBXGroup;
 			children = (
+				BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */,
+				BE82D5D52169F9DF0038609E /* GSSlidingSelectorDataSource.h */,
 				BE15828D20E8C38F00C98D25 /* GSSlidingSelectorViewController.h */,
 				BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */,
-				BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */,
 				BE2A065E20E78C1F00D771F6 /* GSSlidingSelectorStyle.h */,
 				BE2A065A20E788AB00D771F6 /* GSSlidingSelectorStyle.m */,
 			);
@@ -186,16 +203,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE1582C320E9641700C98D25 /* Mars.png in Resources */,
-				BE1582C220E9641700C98D25 /* Earth.png in Resources */,
-				BE1582BD20E9624900C98D25 /* Moon.png in Resources */,
 				BED0AF7020ED452D008EC203 /* titilliumweb-regular.ttf in Resources */,
-				BE1582C420E9641700C98D25 /* Neptune.png in Resources */,
 				BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */,
+				BE82D5E7216A25570038609E /* Venus.jpg in Resources */,
+				BE82D5E6216A25570038609E /* Mars.jpg in Resources */,
 				BED0AF7120ED452D008EC203 /* titilliumweb-semibold.ttf in Resources */,
+				BE82D5E1216A25570038609E /* Pluto.jpg in Resources */,
 				BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */,
 				BED0AF6F20ED452D008EC203 /* ofl.txt in Resources */,
+				BE82D5DF216A25570038609E /* Jupiter.jpg in Resources */,
+				BE82D5E0216A25570038609E /* Saturn.jpg in Resources */,
+				BE82D5E2216A25570038609E /* Earth.jpg in Resources */,
+				BE82D5E4216A25570038609E /* Neptune.jpg in Resources */,
 				BE2A062F20E761FD00D771F6 /* Main.storyboard in Resources */,
+				BE82D5E3216A25570038609E /* Mercury.jpg in Resources */,
+				BE82D5E5216A25570038609E /* Uranus.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
