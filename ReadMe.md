@@ -69,7 +69,7 @@ Controller for selecting items with swipe gestures.
 6. Implement `GSSlidingSelectorDataSource` and `GSSlidingSelectorDelegate` protocol methods:
 
     ```objc
-    #pragma mark - GSSlidingSelectorDelegate
+    #pragma mark - GSSlidingSelectorDataSource
 
     - (NSUInteger)numberOfItemsInSlideSelector:(GSSlidingSelectorViewController*)selector
     {
@@ -80,6 +80,8 @@ Controller for selecting items with swipe gestures.
     {
         return [self.items objectAtIndex:index];
     }
+
+    #pragma mark - GSSlidingSelectorDelegate
 
     - (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
     {
