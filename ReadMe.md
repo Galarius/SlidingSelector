@@ -4,34 +4,53 @@
 ![platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 ![language](https://img.shields.io/badge/language-objc-orange.svg)
 
-Controller for selecting items with swipe gestures.
+`GSSlidingSelector` is a controller for selecting a small fixed amount of elements with swipe gestures.
 
-![](assets/example.gif)
+![](assets/screen.png)
 
 *Inspired by [Figure](https://itunes.apple.com/us/app/figure-make-music-beats/id511269223) app*
+
+## Example
+
+The example project is located under `GSSlidingSelectorExample` folder. Watch an [animated demo](assets/example.gif).
 
 ## Usage
 
 1. Add folder `GSSlidingSelector` to your project.
 
-2. In your `UIViewController` import `GSSlidingSelectorViewController.h`:
+2. `GSSlidingSelectorViewController` behaves like UITableViewController providing the folowing data source and delegate method definitions:
+
+    ```objc
+    - (NSUInteger)numberOfItemsInSlideSelector:(GSSlidingSelectorViewController*)selector;
+    ```
+
+    ```objc
+    - (NSString *)slideSelector:(GSSlidingSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index;
+    ```
+
+    ```objc
+    - (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index;
+    ```
+
+3. Import `GSSlidingSelectorViewController.h`:
 
     ```objc
     #import "GSSlidingSelectorViewController.h"
     ```
 
-3. Extend your interface like this:
+4. Extend your interface like this:
 
     ```objc
     @interface SomeViewController () <GSSlidingSelectorDelegate, GSSlidingSelectorDataSource>
 
     @property (strong, nonatomic) GSSlidingSelectorViewController *selector;
+
     @property (strong, nonatomic) NSArray *items;
 
     @end
     ```
 
-4. In `-(void)viewDidLoad` add the following:
+5. Allocate and initialize an instance of `GSSlidingSelectorViewController`:
 
     ```objc
     _selector = [[GSSlidingSelectorViewController alloc] init];
@@ -41,13 +60,17 @@ Controller for selecting items with swipe gestures.
     [self addChildViewController:self.selector];
     [self.view addSubview:self.selector.view];
     [self.selector didMoveToParentViewController:self];
+    ```
 
+6. Create an array of elements and fill `GSSlidingSelectorViewController` by calling the method `reloadData`:
+
+    ```objc
     _items = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4"];
 
     [self.selector reloadData];
     ```
 
-5. Configure constraints, e.g. programmatically with visual format:
+7. Configure constraints, e.g. programmatically with visual format:
 
     ```objc
     self.selector.view.translatesAutoresizingMaskIntoConstraints = NO;
@@ -60,13 +83,7 @@ Controller for selecting items with swipe gestures.
     [self.view addConstraints:constraintsV];
     ```
 
-    Or just set the frame like this:
-
-    ```objc
-    self.selector.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50);
-    ```
-
-6. Implement `GSSlidingSelectorDataSource` and `GSSlidingSelectorDelegate` protocol methods:
+8. Implement `GSSlidingSelectorDataSource` and `GSSlidingSelectorDelegate` methods:
 
     ```objc
     #pragma mark - GSSlidingSelectorDataSource
@@ -85,16 +102,14 @@ Controller for selecting items with swipe gestures.
 
     - (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
     {
-        NSLog(@"Selected item at index: %lu (%@)", (unsigned long)index, [self.items objectAtIndex:index]);
-        // Do something depending on selected item ...
+        NSLog(@"Selected element at index: %lu (%@)", (unsigned long)index, [self.items objectAtIndex:index]);
+        // Do something depending on the selected element ...
     }
     ```
 
-## Example
-
-The example project is located under `GSSlidingSelectorExample` folder.
-
 ## License
 
-GSSlidingSelector is released under the MIT license. See [LICENSE](https://github.com/galarius/GSSlidingSelector/blob/master/LICENSE) for details.
+`GSSlidingSelector` is released under the MIT license. 
+
+See [LICENSE](https://github.com/galarius/GSSlidingSelector/blob/master/LICENSE) for details.
 
