@@ -12,7 +12,7 @@
 
 ## Example
 
-The example project is located under `GSSlidingSelectorExample` folder. Watch an [animated demo](assets/example.gif).
+The example project is located under `GSSlidingSelectorExample` folder. Watch an [animated demo](assets/example.gif) or [play on Appetize](https://appetize.io/app/5uv9qzk6n1z6qut4f82x5rht80).
 
 ## Usage
 
