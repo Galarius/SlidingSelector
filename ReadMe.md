@@ -113,3 +113,4 @@ The example project is located under `GSSlidingSelectorExample` folder. Watch an
 
 See [LICENSE](https://github.com/galarius/GSSlidingSelector/blob/master/LICENSE) for details.
 
+Images are provided on the terms of personal, non commercial use by bytecodeminer from [alphacoders.com](https://wall.alphacoders.com/big.php?i=725422).
