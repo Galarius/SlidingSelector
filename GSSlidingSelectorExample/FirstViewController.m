@@ -5,9 +5,9 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "FirstViewController.h"
 #import "GSSlidingSelectorViewController.h"
 #import "GSSlidingSelectorStyle.h"
+#import "FirstViewController.h"
 
 const static NSUInteger GSDefaultSelectedIndex = 3;   // [1 - 7]
 const static CGFloat GSTransformImageAnimationTime = 0.4f;
@@ -22,6 +22,9 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
 @property (strong, nonatomic) UIImageView *imgViewSelected;
 @property (strong, nonatomic) UIImageView *imgViewRight;
 
+@property (strong, nonatomic) NSArray *constraintsPortraitArray;
+@property (strong, nonatomic) NSArray *constraintsLandscapeArray;
+
 @property (nonatomic) NSUInteger prevSelectedIndex;
 
 @end
@@ -34,6 +37,8 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
     // Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tabBarController.tabBar.backgroundColor = [UIColor yellowColor];
     
     _items = @[@"Mercury",@"Venus",@"Earth",@"Mars",@"Jupiter",@"Saturn",@"Uranus",@"Neptune",@"Pluto"];
     
@@ -48,14 +53,17 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
     // Create Image Views
     _imgViewSelected = [[UIImageView alloc] init];
     self.imgViewSelected.contentMode = UIViewContentModeScaleAspectFit;
+    self.imgViewSelected.clipsToBounds = YES;
     [self.view addSubview:self.imgViewSelected];
     
     _imgViewLeft = [[UIImageView alloc] init];
     self.imgViewLeft.contentMode = UIViewContentModeScaleAspectFit;
+    self.imgViewLeft.clipsToBounds = YES;
     [self.view addSubview:self.imgViewLeft];
     
     _imgViewRight = [[UIImageView alloc] init];
     self.imgViewRight.contentMode = UIViewContentModeScaleAspectFit;
+    self.imgViewRight.clipsToBounds = YES;
     [self.view addSubview:self.imgViewRight];
     
     [self.selector reloadData];
@@ -71,6 +79,46 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
     [self setupConstraints];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    [self installConstraintForOrientation:orientation];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator
+{
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+        [self installConstraintForOrientation:orientation];
+        
+        if(UIInterfaceOrientationIsLandscape(orientation)) {
+            self.imgViewLeft.contentMode = UIViewContentModeCenter;
+            self.imgViewSelected.contentMode = UIViewContentModeCenter;
+            self.imgViewRight.contentMode = UIViewContentModeCenter;
+        } else {
+            self.imgViewLeft.contentMode = UIViewContentModeScaleAspectFit;
+            self.imgViewSelected.contentMode = UIViewContentModeScaleAspectFit;
+            self.imgViewRight.contentMode = UIViewContentModeScaleAspectFit;
+        }
+        
+    } completion:nil];
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+}
+
+- (BOOL)isiPhoneXType
+{
+    CGFloat h = [UIScreen mainScreen].nativeBounds.size.height;
+    if(h == 2436 /*iPhone X, Xs*/ ||
+       h == 2688 /*iPhone Xs Max*/ ||
+       h == 1792 /*iPhone Xr*/) {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)setupConstraints
 {
     self.selector.view.translatesAutoresizingMaskIntoConstraints   = NO;
@@ -84,22 +132,50 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
                             @"imgViewRight"    : self.imgViewRight,
                             };
     
-    NSArray *constraints = @[
-         [NSLayoutConstraint constraintsWithVisualFormat:@"|[selectorView]|"
-                                                 options:0 metrics:nil views:views],
-         [NSLayoutConstraint constraintsWithVisualFormat:@"|-[imgViewLeft]-[imgViewSelected(==imgViewLeft)]-[imgViewRight(==imgViewLeft)]-|"
-                                                 options:0 metrics:nil views:views],
-         
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[selectorView(==50)]-10-[imgViewLeft]-70-|"
-                                                 options:0 metrics:nil views:views],
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[selectorView(==50)]-10-[imgViewSelected]-70-|"
-                                                 options:0 metrics:nil views:views],
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[selectorView(==50)]-10-[imgViewRight]-70-|"
-                                                 options:0 metrics:nil views:views],
-    ];
+    // Install fixed constraints
+    CGFloat top;
+    NSArray *constraints;
     
-    for (int i = 0; i<constraints.count; i++) {
-        [self.view addConstraints:constraints[i]];
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[selectorView]|"
+                                                          options:0 metrics:nil views:views];
+    [self.view addConstraints:constraints];
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[imgViewLeft]-[imgViewSelected(==imgViewLeft)]-[imgViewRight(==imgViewLeft)]-|" options:0 metrics:nil views:views];
+    [self.view addConstraints:constraints];
+    
+    // Save portrait constraints
+    top = [self isiPhoneXType] ? 40.0 : 20.0;
+    _constraintsPortraitArray = @[
+      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[selectorView(==50)]-10-[imgViewLeft]-10-|"
+                                              options:0 metrics:@{@"top":@(top)} views:views],
+      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[selectorView(==50)]-10-[imgViewSelected]-10-|"
+                                              options:0 metrics:@{@"top":@(top)} views:views],
+      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[selectorView(==50)]-10-[imgViewRight]-10-|"
+                                              options:0 metrics:@{@"top":@(top)} views:views],
+                                  ];
+    // Save landscape constraints
+    top = [self isiPhoneXType] ? 0.0 : 20.0;
+    _constraintsLandscapeArray = @[
+      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[selectorView(==50)]-10-[imgViewLeft]-10-|"
+                                              options:0 metrics:@{@"top":@(top)} views:views],
+      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[selectorView(==50)]-10-[imgViewSelected]-10-|"
+                                              options:0 metrics:@{@"top":@(top)} views:views],
+      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(top)-[selectorView(==50)]-10-[imgViewRight]-10-|"
+                                              options:0 metrics:@{@"top":@(top)} views:views],
+                                  ];
+}
+
+- (void)installConstraintForOrientation:(UIInterfaceOrientation)orientation
+{
+    if(UIInterfaceOrientationIsLandscape(orientation)) {
+        for(NSArray *constraints in self.constraintsPortraitArray)
+            [self.view removeConstraints:constraints];
+        for(NSArray *constraints in self.constraintsLandscapeArray)
+            [self.view addConstraints:constraints];
+    } else {
+        for(NSArray *constraints in self.constraintsLandscapeArray)
+            [self.view removeConstraints:constraints];
+        for(NSArray *constraints in self.constraintsPortraitArray)
+            [self.view addConstraints:constraints];
     }
 }
 
