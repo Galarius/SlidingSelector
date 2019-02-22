@@ -5,7 +5,7 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlidingSelectorStyle.h"
+#import "GSSlidingSelector-Swift.h"
 #import "GSSlidingSelectorViewController.h"
 
 const static CGFloat GSTransformTextFieldAnimationTime = 0.15f;
@@ -124,7 +124,7 @@ const NSUInteger GSMaximumNumberOfElements = 25;
 
 - (void)setupView
 {
-    self.view.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
+    self.view.backgroundColor = GSSlidingSelectorStyle.shared.mainColor;
     
     _scrollView = [[UIScrollView alloc] init];
     self.scrollView.delegate = self;
@@ -166,7 +166,7 @@ const NSUInteger GSMaximumNumberOfElements = 25;
         self.textFields = [NSMutableArray arrayWithCapacity:count];
         for(int i = 0; i < count; ++i) {
             NSString *title = [self.dataSource slideSelector:self titleForItemAtIndex:i];
-            UITextField *textField = [GSSlidingSelectorStyleKit createTextFieldWithText:title];
+            UITextField *textField = [GSSlidingSelectorStyle.shared createTextFieldWithText:title];
             textField.transform = CGAffineTransformScale(textField.transform, 0.5, 0.5);
             [self.textFields addObject:textField];
             [self.scrollView addSubview:textField];
@@ -194,7 +194,7 @@ const NSUInteger GSMaximumNumberOfElements = 25;
 {
     if(updating) {
         [UIView animateWithDuration:GSHighlightBackColorAnimationTime animations:^{
-            self.scrollView.backgroundColor = GSSlidingSelectorStyleKit.holdTouchColor;
+            self.scrollView.backgroundColor = GSSlidingSelectorStyle.shared.holdTouchColor;
             [self hideNeighbors:NO];
         }];
     } else {
