@@ -5,8 +5,8 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlidingSelectorViewController.h"
 #import "GSSlidingSelectorStyle.h"
+#import "GSSlidingSelectorViewController.h"
 
 const static CGFloat GSTransformTextFieldAnimationTime = 0.15f;
 const static CGFloat GSHighlightBackColorAnimationTime = 0.05f;
@@ -155,7 +155,8 @@ const NSUInteger GSMaximumNumberOfElements = 25;
         NSUInteger count = [self.dataSource numberOfItemsInSlideSelector:self];
         
         if(count > GSMaximumNumberOfElements) {
-            NSLog(@"[GSSlidingSelectorViewController] Error: Maximum number of elements is %lu, requested: %lu. Only %lu elements will be loaded.",
+            NSLog(@"[GSSlidingSelectorViewController] Error: Maximum number of elements is %lu, \
+                  requested: %lu. Only %lu elements will be loaded.",
                   (unsigned long)GSMaximumNumberOfElements,
                   (unsigned long)count,
                   (unsigned long)GSMaximumNumberOfElements);

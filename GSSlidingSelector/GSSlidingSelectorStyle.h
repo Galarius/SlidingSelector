@@ -5,7 +5,11 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import <UIKit/UIKit.h>
+@import Foundation.NSObject;
+
+@import UIKit.UIFont;
+@import UIKit.UIColor;
+@import UIKit.UITextField;
 
 #define GSSlidingSelectorStyleKit [GSSlidingSelectorStyle sharedInstance]
 
@@ -17,6 +21,6 @@
 
 + (instancetype)sharedInstance;
 
-- (UITextField*)createTextFieldWithText:(NSString *)text;
+- (UITextField *)createTextFieldWithText:(NSString *)text;
 
 @end

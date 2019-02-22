@@ -5,7 +5,7 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import <Foundation/Foundation.h>
+@import Foundation.NSObject;
 
 @class GSSlidingSelectorViewController;
 

@@ -5,7 +5,7 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

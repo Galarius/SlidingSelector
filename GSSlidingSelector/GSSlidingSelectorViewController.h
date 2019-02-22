@@ -8,13 +8,13 @@
 #import "GSSlidingSelectorDelegate.h"
 #import "GSSlidingSelectorDataSource.h"
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 extern const NSUInteger GSMaximumNumberOfElements;
 
 @interface GSSlidingSelectorViewController : UIViewController
 
-@property(weak, nonatomic) id<GSSlidingSelectorDelegate> delegate;
+@property(weak, nonatomic) id<GSSlidingSelectorDelegate>   delegate;
 @property(weak, nonatomic) id<GSSlidingSelectorDataSource> dataSource;
 @property(nonatomic) NSUInteger selectedIndex;
 
