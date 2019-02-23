@@ -5,12 +5,12 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlidingSelectorDelegate.h"
-#import "GSSlidingSelectorDataSource.h"
-
 @import UIKit;
 
 extern const NSUInteger GSMaximumNumberOfElements;
+
+@protocol GSSlidingSelectorDelegate;
+@protocol GSSlidingSelectorDataSource;
 
 @interface GSSlidingSelectorViewController : UIViewController
 

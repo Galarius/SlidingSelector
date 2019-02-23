@@ -15,6 +15,8 @@
 		BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063020E761FE00D771F6 /* Assets.xcassets */; };
 		BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */; };
 		BE2A063720E761FE00D771F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A063620E761FE00D771F6 /* main.m */; };
+		BE7E24372221658500296C19 /* GSSlidingSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E24362221658500296C19 /* GSSlidingSelectorDelegate.swift */; };
+		BE7E243922216B0A00296C19 /* GSSlidingSelectorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243822216B0A00296C19 /* GSSlidingSelectorDataSource.swift */; };
 		BE82D5DF216A25570038609E /* Jupiter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D6216A25560038609E /* Jupiter.jpg */; };
 		BE82D5E0216A25570038609E /* Saturn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D7216A25560038609E /* Saturn.jpg */; };
 		BE82D5E1216A25570038609E /* Pluto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D8216A25560038609E /* Pluto.jpg */; };
@@ -30,7 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDelegate.h; sourceTree = "<group>"; };
 		BE15828D20E8C38F00C98D25 /* GSSlidingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorViewController.h; sourceTree = "<group>"; };
 		BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorViewController.m; sourceTree = "<group>"; };
 		BE1BD99422204D9200DF49C0 /* GSSlidingSelector-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GSSlidingSelector-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -45,7 +46,8 @@
 		BE2A063320E761FE00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE2A063520E761FE00D771F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE2A063620E761FE00D771F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE82D5D52169F9DF0038609E /* GSSlidingSelectorDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDataSource.h; sourceTree = "<group>"; };
+		BE7E24362221658500296C19 /* GSSlidingSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSlidingSelectorDelegate.swift; sourceTree = "<group>"; };
+		BE7E243822216B0A00296C19 /* GSSlidingSelectorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSlidingSelectorDataSource.swift; sourceTree = "<group>"; };
 		BE82D5D6216A25560038609E /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
 		BE82D5D7216A25560038609E /* Saturn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Saturn.jpg; sourceTree = "<group>"; };
 		BE82D5D8216A25560038609E /* Pluto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pluto.jpg; sourceTree = "<group>"; };
@@ -101,8 +103,10 @@
 		BE1BD99322204D4E00DF49C0 /* GSSlidingSelectorSwift */ = {
 			isa = PBXGroup;
 			children = (
-				BE1BD99522204D9300DF49C0 /* GSSlidingSelectorStyle.swift */,
 				BE1BD99422204D9200DF49C0 /* GSSlidingSelector-Bridging-Header.h */,
+				BE7E243822216B0A00296C19 /* GSSlidingSelectorDataSource.swift */,
+				BE7E24362221658500296C19 /* GSSlidingSelectorDelegate.swift */,
+				BE1BD99522204D9300DF49C0 /* GSSlidingSelectorStyle.swift */,
 			);
 			path = GSSlidingSelectorSwift;
 			sourceTree = "<group>";
@@ -146,8 +150,6 @@
 		BE2A063D20E7625200D771F6 /* GSSlidingSelector */ = {
 			isa = PBXGroup;
 			children = (
-				BE15828C20E8C2DE00C98D25 /* GSSlidingSelectorDelegate.h */,
-				BE82D5D52169F9DF0038609E /* GSSlidingSelectorDataSource.h */,
 				BE15828D20E8C38F00C98D25 /* GSSlidingSelectorViewController.h */,
 				BE15828E20E8C38F00C98D25 /* GSSlidingSelectorViewController.m */,
 			);
@@ -241,6 +243,8 @@
 				BE1BD99622204D9300DF49C0 /* GSSlidingSelectorStyle.swift in Sources */,
 				BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */,
 				BE2A063720E761FE00D771F6 /* main.m in Sources */,
+				BE7E24372221658500296C19 /* GSSlidingSelectorDelegate.swift in Sources */,
+				BE7E243922216B0A00296C19 /* GSSlidingSelectorDataSource.swift in Sources */,
 				BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
