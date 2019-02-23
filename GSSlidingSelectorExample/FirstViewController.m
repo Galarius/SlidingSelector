@@ -5,7 +5,6 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlidingSelectorViewController.h"
 #import "GSSlidingSelector-Swift.h"
 #import "FirstViewController.h"
 
