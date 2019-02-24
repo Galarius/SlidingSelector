@@ -143,7 +143,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
             count = GSMaximumNumberOfElements;
         }
         
-        self.textFields = NSMutableArray(capacity: Int(count))
+        self.textFields = NSMutableArray(capacity: count)
         for i in 0..<(count) {
             let title = self.dataSource?.slideSelector(self, titleForItemAtIndex: i)
             let textField = GSSlidingSelectorStyle.shared.createTextField(withText: title)
@@ -188,7 +188,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     }
     
     func restoreTextField(atIndex index: Int, animated: Bool) {
-        let tf : UITextField = self.textFields[Int(index)] as! UITextField
+        let tf : UITextField = self.textFields[index] as! UITextField
         if animated {
             UIView.animate(withDuration: GSTransformTextFieldAnimationTime, animations: {
                 tf.transform = .identity
@@ -200,7 +200,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     
     func transformTextField(atIndex index: Int, animated: Bool) {
         
-        let tf : UITextField = self.textFields[Int(index)] as! UITextField
+        let tf : UITextField = self.textFields[index] as! UITextField
         if animated {
             UIView.animate(withDuration: GSTransformTextFieldAnimationTime, animations: {
                 tf.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)

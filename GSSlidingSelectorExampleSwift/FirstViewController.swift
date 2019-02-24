@@ -190,7 +190,7 @@ class FirstViewController: UIViewController,GSSlidingSelectorDataSource,GSSlidin
             return
         }
         
-        print("[GSSlidingSelectorViewController] Selected item at index: \(index) (\(self.items[Int(index)]))")
+        print("[GSSlidingSelectorViewController] Selected item at index: \(index) (\(self.items[index]))")
         
         var prevImage: UIImage?
         var selectedImage: UIImage?
@@ -216,7 +216,7 @@ class FirstViewController: UIViewController,GSSlidingSelectorDataSource,GSSlidin
             self.imgViewRight.image = nextImage
         }, completion: nil)
         
-        self.prevSelectedIndex = Int(index);
+        self.prevSelectedIndex = index;
     }
 
 }
