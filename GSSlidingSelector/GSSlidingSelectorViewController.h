@@ -7,10 +7,10 @@
 
 @import UIKit;
 
-extern const NSUInteger GSMaximumNumberOfElements;
+#import "GSSlidingSelectorDelegate.h"
+#import "GSSlidingSelectorDataSource.h"
 
-@protocol GSSlidingSelectorDelegate;
-@protocol GSSlidingSelectorDataSource;
+extern const NSUInteger GSMaximumNumberOfElements;
 
 @interface GSSlidingSelectorViewController : UIViewController
 

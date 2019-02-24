@@ -5,7 +5,8 @@
  * \copyright (c) 2018 galarius. All rights reserved.
  */
 
-#import "GSSlidingSelector-Swift.h"
+#import "GSSlidingSelectorViewController.h"
+#import "GSSlidingSelectorStyle.h"
 #import "FirstViewController.h"
 
 const static NSUInteger GSDefaultSelectedIndex = 3;   // [1 - 7]
@@ -35,7 +36,7 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.view.backgroundColor = GSSlidingSelectorStyle.shared.mainColor;
+    self.view.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.tabBarController.tabBar.backgroundColor = [UIColor yellowColor];
     
