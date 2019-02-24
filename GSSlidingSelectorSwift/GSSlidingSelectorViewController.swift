@@ -10,7 +10,7 @@ import UIKit
 private let GSTransformTextFieldAnimationTime: TimeInterval = 0.15
 private let GSHighlightBackColorAnimationTime: TimeInterval = 0.05
 private let GSRestoreBackColorAnimationTime  : TimeInterval = 0.55
-private let GSMaximumNumberOfElements        : UInt = 25
+private let GSMaximumNumberOfElements        : Int = 25
 
 fileprivate extension Selector {
     static let holdGesture =
@@ -22,7 +22,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     weak var delegate:   GSSlidingSelectorDelegate?
     weak var dataSource: GSSlidingSelectorDataSource?
     
-    var selectedIndex: UInt {
+    var selectedIndex: Int {
         willSet {
             self.transformTextField(atIndex: self.selectedIndex, animated:false);
         }
@@ -94,7 +94,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
         }
     }
     
-    func setSelectedIndex(_ selectedIndex: UInt, animated: Bool) {
+    func setSelectedIndex(_ selectedIndex: Int, animated: Bool) {
         if selectedIndex != self.selectedIndex && selectedIndex < self.textFields.count {
             self.transformTextField(atIndex: self.selectedIndex, animated:animated);
             self.selectedIndex = selectedIndex;
@@ -187,7 +187,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
         }
     }
     
-    func restoreTextField(atIndex index: UInt, animated: Bool) {
+    func restoreTextField(atIndex index: Int, animated: Bool) {
         let tf : UITextField = self.textFields[Int(index)] as! UITextField
         if animated {
             UIView.animate(withDuration: GSTransformTextFieldAnimationTime, animations: {
@@ -198,7 +198,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
         }
     }
     
-    func transformTextField(atIndex index: UInt, animated: Bool) {
+    func transformTextField(atIndex index: Int, animated: Bool) {
         
         let tf : UITextField = self.textFields[Int(index)] as! UITextField
         if animated {
@@ -210,7 +210,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
         }
     }
     
-    func scrollToIndex(_ index: UInt, animated: Bool) {
+    func scrollToIndex(_ index: Int, animated: Bool) {
         let w2 = self.view.frame.width * 0.5
         let target = CGPoint(x: CGFloat(index) * w2, y: 0.0)
         self.scrollView.setContentOffset(target, animated: animated)
@@ -232,8 +232,8 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
         let offset = scrollView.contentOffset.x + velocity.x * 60.0
         let w = self.scrollView.frame.width
         let pageWidth = w * 0.5
-        var idx: UInt = UInt(max(0, round(offset / pageWidth)))
-        idx = min(idx, UInt(self.textFields.count - 1))
+        var idx: Int = Int(max(0, round(offset / pageWidth)))
+        idx = min(idx, Int(self.textFields.count - 1))
         targetContentOffset.pointee.x = CGFloat(idx) * pageWidth
         // Notify observer
         self.delegate?.slideSelector(self, didSelectItemAtIndex: idx)

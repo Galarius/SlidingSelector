@@ -11,7 +11,7 @@ protocol GSSlidingSelectorDelegate : NSObjectProtocol {
     /**
      * @brief Called when item selected in slide selector
      */
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: UInt)
+    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: Int)
 }
 
 

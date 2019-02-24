@@ -59,7 +59,7 @@ class FirstViewController: UIViewController,GSSlidingSelectorDataSource,GSSlidin
         self.view.addSubview(self.imgViewRight)
         
         self.selector.reloadData()
-        self.selector.selectedIndex = UInt(GSDefaultSelectedIndex)
+        self.selector.selectedIndex = GSDefaultSelectedIndex
         self.prevSelectedIndex = GSDefaultSelectedIndex
         
         // Set default images
@@ -175,17 +175,17 @@ class FirstViewController: UIViewController,GSSlidingSelectorDataSource,GSSlidin
     
     //NOTE: GSSlidingSelectorDataSource
     
-    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> UInt {
-        return UInt(self.items.count)
+    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> Int {
+        return self.items.count
     }
     
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: UInt) -> String {
-        return self.items[Int(index)] as! String
+    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String {
+        return self.items[index] as! String
     }
     
     //NOTE: GSSlidingSelectorDelegate
     
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: UInt) {
+    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: Int) {
         if index == self.prevSelectedIndex {
             return
         }
@@ -197,11 +197,11 @@ class FirstViewController: UIViewController,GSSlidingSelectorDataSource,GSSlidin
         var nextImage: UIImage?
         
         if index > 0 {
-            prevImage = self.imageFromIndex(Int(index)-1)
+            prevImage = self.imageFromIndex(index-1)
         }
-        selectedImage = self.imageFromIndex(Int(index))
+        selectedImage = self.imageFromIndex(index)
         if(index < self.items.count-1) {
-            nextImage = self.imageFromIndex(Int(index)+1)
+            nextImage = self.imageFromIndex(index+1)
         }
         
         UIView.transition(with: self.imgViewLeft, duration: GSTransformImageAnimationTime, options: .transitionFlipFromLeft, animations: {

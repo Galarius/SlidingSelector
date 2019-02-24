@@ -14,10 +14,10 @@ protocol GSSlidingSelectorDataSource : NSObjectProtocol {
      * of elements is defined in `GSMaximumNumberOfElements` which is equal to 25 by default.
      * @see GSMaximumNumberOfElements
      */
-    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> UInt;
+    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> Int;
     /**
      * @brief Title for each item
      * @see numberOfItemsInSlideSelector:
      */
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: UInt) -> String;
+    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String;
 }
