@@ -7,17 +7,17 @@
 
 import Foundation
 
-@objc protocol GSSlidingSelectorDataSource : NSObjectProtocol {
+protocol GSSlidingSelectorDataSource : NSObjectProtocol {
     /**
      * @brief Number of items that will be displayed in slide selector.
      * @note This control is convinient for only a small number of elements. The maximum number
      * of elements is defined in `GSMaximumNumberOfElements` which is equal to 25 by default.
      * @see GSMaximumNumberOfElements
      */
-    @objc func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> UInt;
+    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> UInt;
     /**
      * @brief Title for each item
      * @see numberOfItemsInSlideSelector:
      */
-    @objc func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex: UInt) -> String;
+    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: UInt) -> String;
 }

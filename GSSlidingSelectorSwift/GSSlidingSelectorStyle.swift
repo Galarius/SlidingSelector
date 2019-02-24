@@ -10,13 +10,13 @@ import UIKit
 
 private let GSMainFontSize: CGFloat = 32.0
 
-@objc public class GSSlidingSelectorStyle : NSObject
+public class GSSlidingSelectorStyle : NSObject
 {
-    @objc var mainFont: UIFont?
-    @objc var mainColor: UIColor?
-    @objc var holdTouchColor: UIColor?
+    var mainFont: UIFont?
+    var mainColor: UIColor?
+    var holdTouchColor: UIColor?
     
-    @objc static let shared = GSSlidingSelectorStyle()
+    static let shared = GSSlidingSelectorStyle()
     
     private override init() {
         super.init()
@@ -39,7 +39,7 @@ private let GSMainFontSize: CGFloat = 32.0
         holdTouchColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.2)
     }
     
-    @objc func createTextField(withText text: String?) -> UITextField {
+    func createTextField(withText text: String?) -> UITextField {
         let tField = UITextField()
         tField.backgroundColor = UIColor.clear
         tField.textAlignment = .center

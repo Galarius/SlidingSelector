@@ -17,12 +17,12 @@ fileprivate extension Selector {
         #selector(GSSlidingSelectorViewController.holdGesture(_:))
 }
 
-@objc class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
-    @objc weak var delegate:   GSSlidingSelectorDelegate?
-    @objc weak var dataSource: GSSlidingSelectorDataSource?
+    weak var delegate:   GSSlidingSelectorDelegate?
+    weak var dataSource: GSSlidingSelectorDataSource?
     
-    @objc var selectedIndex: UInt {
+    var selectedIndex: UInt {
         willSet {
             self.transformTextField(atIndex: self.selectedIndex, animated:false);
         }
@@ -94,7 +94,7 @@ fileprivate extension Selector {
         }
     }
     
-    @objc func setSelectedIndex(_ selectedIndex: UInt, animated: Bool) {
+    func setSelectedIndex(_ selectedIndex: UInt, animated: Bool) {
         if selectedIndex != self.selectedIndex && selectedIndex < self.textFields.count {
             self.transformTextField(atIndex: self.selectedIndex, animated:animated);
             self.selectedIndex = selectedIndex;
@@ -128,7 +128,7 @@ fileprivate extension Selector {
      * @see GSSlideSelectorDelegate methods
      * @see GSMaximumNumberOfElements
      */
-    @objc func reloadData()
+    func reloadData()
     {
         if self.textFields.count > 0 {
             // Remove all previously added text fields

@@ -7,11 +7,11 @@
 
 import Foundation
 
-@objc protocol GSSlidingSelectorDelegate : NSObjectProtocol {
+protocol GSSlidingSelectorDelegate : NSObjectProtocol {
     /**
      * @brief Called when item selected in slide selector
      */
-     @objc func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex: UInt)
+    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: UInt)
 }
 
 
