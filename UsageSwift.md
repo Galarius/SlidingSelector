@@ -62,28 +62,6 @@
 
 7. Implement `GSSlidingSelectorDataSource` and `GSSlidingSelectorDelegate` methods:
 
-    ```objc
-    #pragma mark - GSSlidingSelectorDataSource
-
-    - (NSUInteger)numberOfItemsInSlideSelector:(GSSlidingSelectorViewController*)selector
-    {
-        return self.items.count;
-    }
-
-    - (NSString *)slideSelector:(GSSlidingSelectorViewController*)selector titleForItemAtIndex:(NSUInteger)index
-    {
-        return [self.items objectAtIndex:index];
-    }
-
-    #pragma mark - GSSlidingSelectorDelegate
-
-    - (void)slideSelector:(GSSlidingSelectorViewController*)selector didSelectItemAtIndex:(NSUInteger)index
-    {
-        NSLog(@"Selected element at index: %lu (%@)", (unsigned long)index, [self.items objectAtIndex:index]);
-        // Do something depending on the selected element ...
-    }
-    ```
-
     ```swift
     //NOTE: GSSlidingSelectorDataSource
     
