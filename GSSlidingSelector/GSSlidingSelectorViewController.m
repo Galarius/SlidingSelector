@@ -193,15 +193,16 @@ const NSUInteger GSMaximumNumberOfElements = 25;
 - (void)toggleState:(BOOL)updating
 {
     if(updating) {
-        [UIView animateWithDuration:GSHighlightBackColorAnimationTime animations:^{
+        
+        [UIView animateWithDuration:GSRestoreBackColorAnimationTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction animations:^{
             self.scrollView.backgroundColor = GSSlidingSelectorStyleKit.holdTouchColor;
             [self hideNeighbors:NO];
-        }];
+        } completion:nil];
     } else {
-        [UIView animateWithDuration:GSRestoreBackColorAnimationTime animations:^{
+        [UIView animateWithDuration:GSRestoreBackColorAnimationTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction animations:^{
             self.scrollView.backgroundColor = [UIColor clearColor];
             [self hideNeighbors:YES];
-        }];
+        } completion:nil];
     }
 }
 

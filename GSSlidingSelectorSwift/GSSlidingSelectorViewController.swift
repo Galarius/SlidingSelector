@@ -175,15 +175,18 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     
     func toggleState(_ updating: Bool) {
         if updating {
-            UIView.animate(withDuration: GSHighlightBackColorAnimationTime, animations: {
+            
+            UIView.animate(withDuration: GSHighlightBackColorAnimationTime, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
                 self.scrollView.backgroundColor = GSSlidingSelectorStyle.shared.holdTouchColor
                 self.hideNeighbors(false)
-            })
+            }, completion: nil);
+        
         } else {
-            UIView.animate(withDuration: GSRestoreBackColorAnimationTime, animations: {
+            
+            UIView.animate(withDuration: GSRestoreBackColorAnimationTime, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
                 self.scrollView.backgroundColor = UIColor.clear
                 self.hideNeighbors(true)
-            })
+            }, completion: nil);
         }
     }
     
