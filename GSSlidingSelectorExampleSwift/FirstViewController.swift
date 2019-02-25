@@ -31,7 +31,7 @@ class FirstViewController: UIViewController,GSSlidingSelectorDataSource,GSSlidin
         
         self.view.backgroundColor = GSSlidingSelectorStyle.shared.mainColor
         self.edgesForExtendedLayout = []
-        self.tabBarController?.tabBar.backgroundColor = UIColor.yellow
+        self.tabBarController?.tabBar.backgroundColor = GSSlidingSelectorStyle.shared.mainColor
         
         // Create GSSlidingSelectorViewController
         self.selector = GSSlidingSelectorViewController()

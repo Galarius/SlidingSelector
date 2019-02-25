@@ -38,7 +38,7 @@ const static CGFloat GSTransformImageAnimationTime = 0.4f;
     
     self.view.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.tabBarController.tabBar.backgroundColor = [UIColor yellowColor];
+    self.tabBarController.tabBar.backgroundColor = GSSlidingSelectorStyleKit.mainColor;
     
     _items = @[@"Mercury",@"Venus",@"Earth",@"Mars",@"Jupiter",@"Saturn",@"Uranus",@"Neptune",@"Pluto"];
     
