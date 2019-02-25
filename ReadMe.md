@@ -25,7 +25,7 @@ Select an appropriate guide:
 
 | [![objc](assets/objc.jpg)](UsageObjC.md) | [![swift](assets/swift.jpg)](UsageSwift.md) |
 | --- | --- |
-| [UsageObjC.md](UsageSwift.md) | [UsageSwift.md](UsageObjC.md) |
+| [UsageObjC.md](UsageObjC.md) | [UsageSwift.md](UsageSwift.md) |
 
 ## License
 
