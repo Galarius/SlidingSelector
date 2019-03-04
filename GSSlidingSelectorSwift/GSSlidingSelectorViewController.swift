@@ -35,13 +35,11 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     var scrollView: UIScrollView!   ///< ScrollView to slide items horizontally
     var textFields: NSMutableArray ///< Array of text fields in scroll view
     var selectedItem: NSString     ///< Selected & displayed item
-    var decelerating: Bool         ///< Flag to know if scroll view's decelerating is active
     
     init() {
         
         self.selectedIndex = 0
         self.selectedItem = ""
-        self.decelerating = false
         self.textFields = []
         
         super.init(nibName: nil, bundle: nil)
@@ -51,7 +49,6 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
         
         self.selectedIndex = 0
         self.selectedItem = ""
-        self.decelerating = false
         self.textFields = []
         
         super.init(coder: aDecoder)
@@ -221,13 +218,8 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     
     //MARK: UIScrollViewDelegate
     
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        self.decelerating = true
-    }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.toggleState(false)
-        self.decelerating = false
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -263,7 +255,7 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
             self.toggleState(true)
             break
         case .ended,.failed,.cancelled:
-            if !self.decelerating {
+            if !self.scrollView.isDecelerating && !self.scrollView.isDragging {
                 self.toggleState(false)
             }
             break
