@@ -28,10 +28,6 @@ const NSUInteger GSMaximumNumberOfElements = 25;
  *  \brief Selected & displayed item
  */
 @property(strong, nonatomic) NSString *selectedItem;
-/*!
- * \brief Flag to know if scroll view's decelerating is active
- */
-@property(nonatomic) BOOL decelerating;
 
 @end
 
@@ -194,7 +190,7 @@ const NSUInteger GSMaximumNumberOfElements = 25;
 {
     if(updating) {
         
-        [UIView animateWithDuration:GSRestoreBackColorAnimationTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction animations:^{
+        [UIView animateWithDuration:GSHighlightBackColorAnimationTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction animations:^{
             self.scrollView.backgroundColor = GSSlidingSelectorStyleKit.holdTouchColor;
             [self hideNeighbors:NO];
         } completion:nil];
@@ -240,15 +236,9 @@ const NSUInteger GSMaximumNumberOfElements = 25;
 
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-{
-    self.decelerating = YES;
-}
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self toggleState:NO];
-    self.decelerating = NO;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
@@ -286,11 +276,12 @@ const NSUInteger GSMaximumNumberOfElements = 25;
 {    
     if (gesture.state == UIGestureRecognizerStateBegan) {
         [self toggleState:YES];
-    } else if((gesture.state == UIGestureRecognizerStateEnded ||
+    } else if(gesture.state == UIGestureRecognizerStateEnded ||
               gesture.state == UIGestureRecognizerStateFailed ||
-              gesture.state == UIGestureRecognizerStateCancelled) &&
-              !self.decelerating) {
-        [self toggleState:NO];
+              gesture.state == UIGestureRecognizerStateCancelled) {
+        if(!self.scrollView.isDecelerating && !self.scrollView.isDragging) {
+            [self toggleState:NO];
+        }
     }
 }
 
