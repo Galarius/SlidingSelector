@@ -218,9 +218,10 @@ class GSSlidingSelectorViewController: UIViewController, UIScrollViewDelegate, U
     
     //MARK: UIScrollViewDelegate
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         self.toggleState(false)
     }
+    
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
