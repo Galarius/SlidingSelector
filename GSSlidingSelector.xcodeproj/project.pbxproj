@@ -12,10 +12,10 @@
 		BE07997322226B280013490D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE07997122226B280013490D /* Main.storyboard */; };
 		BE07997522226B290013490D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE07997422226B290013490D /* Assets.xcassets */; };
 		BE07997822226B290013490D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE07997622226B290013490D /* LaunchScreen.storyboard */; };
-		BE07997D22226E080013490D /* GSSlidingSelectorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243822216B0A00296C19 /* GSSlidingSelectorDataSource.swift */; };
-		BE07997E22226E080013490D /* GSSlidingSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E24362221658500296C19 /* GSSlidingSelectorDelegate.swift */; };
-		BE07997F22226E080013490D /* GSSlidingSelectorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1BD99522204D9300DF49C0 /* GSSlidingSelectorStyle.swift */; };
-		BE07998022226E080013490D /* GSSlidingSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243A22216D7F00296C19 /* GSSlidingSelectorViewController.swift */; };
+		BE07997D22226E080013490D /* SlidingSelectorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243822216B0A00296C19 /* SlidingSelectorDataSource.swift */; };
+		BE07997E22226E080013490D /* SlidingSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E24362221658500296C19 /* SlidingSelectorDelegate.swift */; };
+		BE07997F22226E080013490D /* SlidingSelectorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1BD99522204D9300DF49C0 /* SlidingSelectorStyle.swift */; };
+		BE07998022226E080013490D /* SlidingSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */; };
 		BE0799812222E9F50013490D /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */; };
 		BE0799822222E9F50013490D /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */; };
 		BE0799832222EA0B0013490D /* Earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D9216A25560038609E /* Earth.jpg */; };
@@ -66,7 +66,7 @@
 		BE07998F2222EB0E0013490D /* GSSlidingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorViewController.h; sourceTree = "<group>"; };
 		BE0799902222EB0E0013490D /* GSSlidingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorViewController.m; sourceTree = "<group>"; };
 		BE0799912222EB0E0013490D /* GSSlidingSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDataSource.h; sourceTree = "<group>"; };
-		BE1BD99522204D9300DF49C0 /* GSSlidingSelectorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSlidingSelectorStyle.swift; sourceTree = "<group>"; };
+		BE1BD99522204D9300DF49C0 /* SlidingSelectorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorStyle.swift; sourceTree = "<group>"; };
 		BE2A062120E761FC00D771F6 /* GSSlidingSelectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlidingSelectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2A062420E761FC00D771F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,9 +77,9 @@
 		BE2A063320E761FE00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE2A063520E761FE00D771F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE2A063620E761FE00D771F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE7E24362221658500296C19 /* GSSlidingSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSlidingSelectorDelegate.swift; sourceTree = "<group>"; };
-		BE7E243822216B0A00296C19 /* GSSlidingSelectorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSlidingSelectorDataSource.swift; sourceTree = "<group>"; };
-		BE7E243A22216D7F00296C19 /* GSSlidingSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GSSlidingSelectorViewController.swift; sourceTree = "<group>"; };
+		BE7E24362221658500296C19 /* SlidingSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorDelegate.swift; sourceTree = "<group>"; };
+		BE7E243822216B0A00296C19 /* SlidingSelectorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorDataSource.swift; sourceTree = "<group>"; };
+		BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorViewController.swift; sourceTree = "<group>"; };
 		BE82D5D6216A25560038609E /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
 		BE82D5D7216A25560038609E /* Saturn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Saturn.jpg; sourceTree = "<group>"; };
 		BE82D5D8216A25560038609E /* Pluto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pluto.jpg; sourceTree = "<group>"; };
@@ -155,10 +155,10 @@
 		BE1BD99322204D4E00DF49C0 /* GSSlidingSelectorSwift */ = {
 			isa = PBXGroup;
 			children = (
-				BE7E243822216B0A00296C19 /* GSSlidingSelectorDataSource.swift */,
-				BE7E24362221658500296C19 /* GSSlidingSelectorDelegate.swift */,
-				BE1BD99522204D9300DF49C0 /* GSSlidingSelectorStyle.swift */,
-				BE7E243A22216D7F00296C19 /* GSSlidingSelectorViewController.swift */,
+				BE7E243822216B0A00296C19 /* SlidingSelectorDataSource.swift */,
+				BE7E24362221658500296C19 /* SlidingSelectorDelegate.swift */,
+				BE1BD99522204D9300DF49C0 /* SlidingSelectorStyle.swift */,
+				BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */,
 			);
 			path = GSSlidingSelectorSwift;
 			sourceTree = "<group>";
@@ -224,6 +224,7 @@
 				BE07996522226B270013490D /* Sources */,
 				BE07996622226B270013490D /* Frameworks */,
 				BE07996722226B270013490D /* Resources */,
+				BE727D32249D590700D7D056 /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -263,6 +264,7 @@
 				TargetAttributes = {
 					BE07996822226B270013490D = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1120;
 					};
 					BE2A062020E761FC00D771F6 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -334,16 +336,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BE727D32249D590700D7D056 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect\n  swiftlint lint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE07996522226B270013490D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE07997F22226E080013490D /* GSSlidingSelectorStyle.swift in Sources */,
-				BE07997D22226E080013490D /* GSSlidingSelectorDataSource.swift in Sources */,
-				BE07998022226E080013490D /* GSSlidingSelectorViewController.swift in Sources */,
+				BE07997F22226E080013490D /* SlidingSelectorStyle.swift in Sources */,
+				BE07997D22226E080013490D /* SlidingSelectorDataSource.swift in Sources */,
+				BE07998022226E080013490D /* SlidingSelectorViewController.swift in Sources */,
 				BE07996C22226B280013490D /* AppDelegate.swift in Sources */,
-				BE07997E22226E080013490D /* GSSlidingSelectorDelegate.swift in Sources */,
+				BE07997E22226E080013490D /* SlidingSelectorDelegate.swift in Sources */,
 				BE07996E22226B280013490D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,7 +445,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -446,7 +469,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -567,9 +590,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28ZE7583ZV;
 				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -591,9 +614,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28ZE7583ZV;
 				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,0 +1,15 @@
+# SwiftLint configuration file
+# https://github.com/realm/SwiftLint
+
+line_length: 180
+cyclomatic_complexity:
+  ignores_case_statements: true
+identifier_name:
+  excluded:
+    - i
+    - x
+    - w
+    - h
+    - w2
+    - w4
+    - h2
