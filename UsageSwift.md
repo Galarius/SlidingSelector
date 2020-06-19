@@ -1,36 +1,36 @@
 # Swift Usage Guide
 
-1. Add folder `GSSlidingSelectorSwift` to your project.
+1. Add folder `SlidingSelectorSwift` to your project.
 
-2. `GSSlidingSelectorViewController` behaves like UITableViewController providing the folowing data source and delegate method definitions:
+2. `SlidingSelectorViewController` behaves like UITableViewController providing the folowing data source and delegate method definitions:
     
     ```swift
-    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> Int
+    func numberOfItemsInSlideSelector(_ selector: SlidingSelectorViewController!) -> Int
     ```
 
     ```swift
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String
+    func slideSelector(_ selector: SlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String
     ```
 
     ```swift
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: Int)
+    func slideSelector(_ selector: SlidingSelectorViewController!, didSelectItemAtIndex index: Int)
     ```
 
 3. Extend your class like this:
 
     ```swift
-    class SomeViewController: GSSlidingSelectorDataSource,GSSlidingSelectorDelegate {
+    class SomeViewController: SlidingSelectorDataSource,SlidingSelectorDelegate {
 
-        var selector: GSSlidingSelectorViewController!
+        var selector: SlidingSelectorViewController!
         
         var items: NSArray = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune","Pluto"];
     }
     ```
 
-4. Create an instance of `GSSlidingSelectorViewController`:
+4. Create an instance of `SlidingSelectorViewController`:
 
     ```swift
-    self.selector = GSSlidingSelectorViewController()
+    self.selector = SlidingSelectorViewController()
     self.selector.delegate = self
     self.selector.dataSource = self
     self.addChild(self.selector)
@@ -38,7 +38,7 @@
     self.selector.didMove(toParent: self)
     ```
 
-5. Fill `GSSlidingSelectorViewController` by calling the method `reloadData`:
+5. Fill `SlidingSelectorViewController` by calling the method `reloadData`:
 
     ```swift
     //...
@@ -60,24 +60,24 @@
     self.view.addConstraints(constraintsV)
     ```
 
-7. Implement `GSSlidingSelectorDataSource` and `GSSlidingSelectorDelegate` methods:
+7. Implement `SlidingSelectorDataSource` and `SlidingSelectorDelegate` methods:
 
     ```swift
-    //NOTE: GSSlidingSelectorDataSource
+    //NOTE: SlidingSelectorDataSource
     
-    func numberOfItemsInSlideSelector(_ selector: GSSlidingSelectorViewController!) -> Int {
+    func numberOfItemsInSlideSelector(_ selector: SlidingSelectorViewController!) -> Int {
         return self.items.count
     }
     
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String {
+    func slideSelector(_ selector: SlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String {
         return self.items[index] as! String
     }
     
-    //NOTE: GSSlidingSelectorDelegate
+    //NOTE: SlidingSelectorDelegate
     
-    func slideSelector(_ selector: GSSlidingSelectorViewController!, didSelectItemAtIndex index: Int) {
+    func slideSelector(_ selector: SlidingSelectorViewController!, didSelectItemAtIndex index: Int) {
         
-        print("[GSSlidingSelectorViewController] Selected item at index: \(index) (\(self.items[Int(index)]))")
+        print("[SlidingSelectorViewController] Selected item at index: \(index) (\(self.items[Int(index)]))")
         // Do something depending on the selected element ...
     }
     ```
