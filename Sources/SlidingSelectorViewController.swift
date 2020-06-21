@@ -45,7 +45,7 @@ final public class SlidingSelectorViewController: UIViewController {
      
      It is recommended to store a small amount of elements (<= 15)
      */
-    var items = [String]() {
+    public var items = [String]() {
         didSet {
             selectorView?.clearLabels()
             items.forEach { self.selectorView?.addLabel($0) }
@@ -57,7 +57,7 @@ final public class SlidingSelectorViewController: UIViewController {
     /**
      Helper Images will be shown only once at first launch until another item is selected
      */
-    var shouldHideHelp: Bool {
+    public var shouldHideHelp: Bool {
         get {
             return UserDefaults.hideHelp
         }

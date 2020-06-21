@@ -15,7 +15,8 @@ final public class SlidingSelectorView: UIView {
            labels.forEach { $0.textColor = textColor }
        }
     }
-    var font: UIFont? = UIFont(name: "Helvetica", size: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize)
+    public var font: UIFont? = UIFont(name: "Helvetica", size: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize)
+    
     var isHelpHidden = false {
         didSet {
             imgViewLeft.isHidden = isHelpHidden
