@@ -23,7 +23,7 @@ private extension UserDefaults {
 
 // MARK: SlidingSelectorDelegate
 
-@objc protocol SlidingSelectorDelegate: NSObjectProtocol {
+@objc public protocol SlidingSelectorDelegate: NSObjectProtocol {
     func slideSelector(_ selector: SlidingSelectorViewController!, didSelectItemAtIndex index: Int)
 }
 
@@ -31,10 +31,10 @@ private extension UserDefaults {
 
 final public class SlidingSelectorViewController: UIViewController {
 
-    @IBOutlet weak var delegate: SlidingSelectorDelegate?
+    @IBOutlet public weak var delegate: SlidingSelectorDelegate?
     @IBOutlet var selectorView: SlidingSelectorView?
 
-    private(set) var selectedIndex = 0 {
+    private(set) public var selectedIndex = 0 {
         didSet {
             selectorView?.selectedIndex = selectedIndex
         }
