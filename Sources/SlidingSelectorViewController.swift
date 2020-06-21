@@ -79,7 +79,7 @@ final public class SlidingSelectorViewController: UIViewController {
     }
 
     public func setSelectedIndex(_ selectedIndex: Int, animated: Bool = false) {
-        guard selectedIndex != selectedIndex && selectedIndex < items.count else { return }
+        guard self.selectedIndex != selectedIndex && selectedIndex < items.count else { return }
         selectorView?.transformTextField(atIndex: selectedIndex, animated: animated)
         self.selectedIndex = selectedIndex
         selectorView?.restoreTextField(atIndex: selectedIndex, animated: animated)
