@@ -45,6 +45,7 @@
 		BE82D5E5216A25570038609E /* Uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DC216A25560038609E /* Uranus.jpg */; };
 		BE82D5E6216A25570038609E /* Mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DD216A25560038609E /* Mars.jpg */; };
 		BE82D5E7216A25570038609E /* Venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DE216A25570038609E /* Venus.jpg */; };
+		BEB2E035249FB646006F0215 /* SlidingSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB2E033249FB642006F0215 /* SlidingSelectorView.swift */; };
 		BEBC87F8249F665F0050D387 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEBC87F7249F65D20050D387 /* Media.xcassets */; };
 		BED0AF7020ED452D008EC203 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */; };
 		BED0AF7120ED452D008EC203 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */; };
@@ -84,6 +85,7 @@
 		BE82D5DC216A25560038609E /* Uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Uranus.jpg; sourceTree = "<group>"; };
 		BE82D5DD216A25560038609E /* Mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mars.jpg; sourceTree = "<group>"; };
 		BE82D5DE216A25570038609E /* Venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Venus.jpg; sourceTree = "<group>"; };
+		BEB2E033249FB642006F0215 /* SlidingSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorView.swift; sourceTree = "<group>"; };
 		BEBC87F7249F65D20050D387 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		BED0AF6C20ED452D008EC203 /* ofl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ofl.txt; path = GSSlidingSelectorExample/Fonts/ofl.txt; sourceTree = SOURCE_ROOT; };
 		BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-regular.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -151,6 +153,7 @@
 		BE1BD99322204D4E00DF49C0 /* GSSlidingSelectorSwift */ = {
 			isa = PBXGroup;
 			children = (
+				BEB2E033249FB642006F0215 /* SlidingSelectorView.swift */,
 				BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */,
 				BEBC87F7249F65D20050D387 /* Media.xcassets */,
 			);
@@ -359,6 +362,7 @@
 			files = (
 				BE07998022226E080013490D /* SlidingSelectorViewController.swift in Sources */,
 				BE07996C22226B280013490D /* AppDelegate.swift in Sources */,
+				BEB2E035249FB646006F0215 /* SlidingSelectorView.swift in Sources */,
 				BE07996E22226B280013490D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

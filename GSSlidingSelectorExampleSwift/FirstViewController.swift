@@ -11,51 +11,24 @@ import UIKit
 let GSDefaultSelectedIndex: Int = 3   // [1 - 7]
 let GSTransformImageAnimationTime: TimeInterval = 0.4
 
-final class FirstViewController: UIViewController, SlidingSelectorDataSource, SlidingSelectorDelegate {
+final class FirstViewController: UIViewController, SlidingSelectorDelegate {
 
-    var selector: SlidingSelectorViewController!
-    var imgViewLeft: UIImageView!
-    var imgViewSelected: UIImageView!
-    var imgViewRight: UIImageView!
+    @IBOutlet var selector: SlidingSelectorViewController!
 
-    var constraintsPortraitArray: NSArray = []
-    var constraintsLandscapeArray: NSArray = []
+    @IBOutlet var imgViewLeft: UIImageView!
+    @IBOutlet var imgViewSelected: UIImageView!
+    @IBOutlet var imgViewRight: UIImageView!
+
     var prevSelectedIndex: Int = 0
 
-    var items: NSArray = ["Mercury", "Venus", "Earth", "Mars",
-                          "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"]
+    var items  = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        // Create GSSlidingSelectorViewController
-        selector = SlidingSelectorViewController()
+        selector.items = items
         selector.delegate = self
-        selector.dataSource = self
-        addChild(selector)
-        view.addSubview(selector.view)
-        selector.didMove(toParent: self)
-
-        // Create Image Views
-
-        imgViewLeft = UIImageView()
-        imgViewLeft.contentMode = .scaleAspectFit
-        imgViewLeft.clipsToBounds = true
-        view.addSubview(imgViewLeft)
-
-        imgViewSelected = UIImageView()
-        imgViewSelected.contentMode = .scaleAspectFit
-        imgViewSelected.clipsToBounds = true
-        view.addSubview(imgViewSelected)
-
-        imgViewRight = UIImageView()
-        imgViewRight.contentMode = .scaleAspectFit
-        imgViewRight.clipsToBounds = true
-        view.addSubview(imgViewRight)
-
-        selector.reloadData()
-        selector.selectedIndex = GSDefaultSelectedIndex
+        selector.setSelectedIndex(GSDefaultSelectedIndex, animated: false)
         prevSelectedIndex = GSDefaultSelectedIndex
 
         // Set default images
@@ -63,27 +36,14 @@ final class FirstViewController: UIViewController, SlidingSelectorDataSource, Sl
         imgViewSelected.image = imageFromIndex(GSDefaultSelectedIndex)
         imgViewRight.image = imageFromIndex(GSDefaultSelectedIndex+1)
 
-        // Setup Constraints Programmatically
-        setupConstraints()
-
-        view.backgroundColor = selector.mainColor
+        view.backgroundColor = UIColor(red: 240/255.0, green: 235/255.0, blue: 180/255.0, alpha: 1.0)
         edgesForExtendedLayout = []
         tabBarController?.tabBar.backgroundColor = view.backgroundColor
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        let orientation = UIApplication.shared.statusBarOrientation
-        installConstraint(forOrientation: orientation)
-    }
-
     override func  viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
         coordinator.animate(alongsideTransition: { _ in
                 let orientation = UIApplication.shared.statusBarOrientation
-                self.installConstraint(forOrientation: orientation)
-
                 if orientation.isLandscape {
                     self.imgViewLeft.contentMode = .center
                     self.imgViewSelected.contentMode = .center
@@ -98,97 +58,9 @@ final class FirstViewController: UIViewController, SlidingSelectorDataSource, Sl
         super.viewWillTransition(to: size, with: coordinator)
     }
 
-    func isiPhoneXType() -> Bool {
-        let h = UIScreen.main.nativeBounds.size.height
-        if h == 2436 /*iPhone X, Xs*/  ||
-           h == 2688 /*iPhone Xs Max*/ ||
-           h == 1792 /*iPhone Xr*/ {
-            return true
-        }
-        return false
-    }
-
-    func setupConstraints() {
-        selector.view.translatesAutoresizingMaskIntoConstraints   = false
-        imgViewLeft.translatesAutoresizingMaskIntoConstraints     = false
-        imgViewSelected.translatesAutoresizingMaskIntoConstraints = false
-        imgViewRight.translatesAutoresizingMaskIntoConstraints    = false
-
-        let views: [String: UIView] = [
-            "selectorView": selector.view,
-            "imgViewLeft": imgViewLeft,
-            "imgViewSelected": imgViewSelected,
-            "imgViewRight": imgViewRight
-        ]
-
-        // Install fixed constraints
-        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "|[selectorView]|", options: [], metrics: nil, views: views)
-        view.addConstraints(constraints)
-        constraints = NSLayoutConstraint.constraints(withVisualFormat:
-            "|-[imgViewLeft]-[imgViewSelected(==imgViewLeft)]-[imgViewRight(==imgViewLeft)]-|",
-                                                     options: [],
-                                                     metrics: nil,
-                                                     views: views)
-        view.addConstraints(constraints)
-
-        // Save portrait constraints
-        var top = isiPhoneXType() ? 40.0 : 20.0
-        let metrics = ["top": top]
-        constraintsPortraitArray = [
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(top)-[selectorView(==50)]-10-[imgViewLeft]-10-|", options: [], metrics: metrics, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(top)-[selectorView(==50)]-10-[imgViewSelected]-10-|", options: [], metrics: metrics, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(top)-[selectorView(==50)]-10-[imgViewRight]-10-|", options: [], metrics: metrics, views: views)
-        ]
-
-        // Save landscape constraints
-        top = isiPhoneXType() ? 0.0 : 20.0
-        constraintsLandscapeArray = [
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(top)-[selectorView(==50)]-10-[imgViewLeft]-10-|", options: [], metrics: metrics, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(top)-[selectorView(==50)]-10-[imgViewSelected]-10-|", options: [], metrics: metrics, views: views),
-            NSLayoutConstraint.constraints(withVisualFormat: "V:|-(top)-[selectorView(==50)]-10-[imgViewRight]-10-|", options: [], metrics: metrics, views: views)
-        ]
-    }
-
-    func installConstraint(forOrientation orientation: UIInterfaceOrientation) {
-        if orientation.isLandscape {
-            for constraints in constraintsPortraitArray {
-                if let constraints = constraints as? [NSLayoutConstraint] {
-                    view.removeConstraints(constraints)
-                }
-            }
-            for constraints in constraintsLandscapeArray {
-                if let constraints = constraints as? [NSLayoutConstraint] {
-                    view.addConstraints(constraints)
-                }
-            }
-        } else {
-            for constraints in constraintsLandscapeArray {
-                if let constraints = constraints as? [NSLayoutConstraint] {
-                    view.removeConstraints(constraints)
-                }
-            }
-            for constraints in constraintsPortraitArray {
-                if let constraints = constraints as? [NSLayoutConstraint] {
-                    view.addConstraints(constraints)
-                }
-            }
-        }
-    }
-
     func imageFromIndex(_ index: Int) -> UIImage? {
         let name = items[index]
-
         return UIImage(named: "\(name).jpg")
-    }
-
-    //NOTE: GSSlidingSelectorDataSource
-
-    func numberOfItemsInSlideSelector(_ selector: SlidingSelectorViewController!) -> Int {
-        return items.count
-    }
-
-    func slideSelector(_ selector: SlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String {
-        return items[index] as? String ?? ""
     }
 
     //NOTE: GSSlidingSelectorDelegate

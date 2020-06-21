@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,20 +12,68 @@
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="GSSlidingSelectorExampleSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4HJ-r8-CEn"/>
-                        <viewControllerLayoutGuide type="bottom" id="E7e-i4-Y8e"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0K-3K-Qla" customClass="SlidingSelectorView" customModule="GSSlidingSelectorExampleSwift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="10" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.92156862745098034" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Nks-9o-Yz9"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jb5-IW-Y4i">
+                                <rect key="frame" x="16" y="68" width="111.5" height="550"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P4P-9b-abd">
+                                <rect key="frame" x="131.5" y="68" width="112" height="550"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YcK-sp-gaS">
+                                <rect key="frame" x="247.5" y="68" width="111.5" height="550"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="P4P-9b-abd" firstAttribute="bottom" secondItem="Jb5-IW-Y4i" secondAttribute="bottom" id="2I5-B3-ab2"/>
+                            <constraint firstItem="1I0-Xg-4Qi" firstAttribute="bottom" secondItem="Jb5-IW-Y4i" secondAttribute="bottom" id="2ek-PH-lqf"/>
+                            <constraint firstItem="c0K-3K-Qla" firstAttribute="leading" secondItem="1I0-Xg-4Qi" secondAttribute="leading" id="3eg-mp-p9V"/>
+                            <constraint firstItem="P4P-9b-abd" firstAttribute="leading" secondItem="Jb5-IW-Y4i" secondAttribute="trailing" constant="4" id="BRh-gj-cbp"/>
+                            <constraint firstItem="YcK-sp-gaS" firstAttribute="bottom" secondItem="Jb5-IW-Y4i" secondAttribute="bottom" id="ChW-yQ-gru"/>
+                            <constraint firstItem="1I0-Xg-4Qi" firstAttribute="trailing" secondItem="YcK-sp-gaS" secondAttribute="trailing" constant="16" id="WIS-5J-D5Q"/>
+                            <constraint firstItem="1I0-Xg-4Qi" firstAttribute="trailing" secondItem="c0K-3K-Qla" secondAttribute="trailing" id="e2d-IX-cWg"/>
+                            <constraint firstItem="YcK-sp-gaS" firstAttribute="top" secondItem="Jb5-IW-Y4i" secondAttribute="top" id="ihw-zS-fzw"/>
+                            <constraint firstItem="YcK-sp-gaS" firstAttribute="leading" secondItem="P4P-9b-abd" secondAttribute="trailing" constant="4" id="nGV-of-qNl"/>
+                            <constraint firstItem="Jb5-IW-Y4i" firstAttribute="width" secondItem="P4P-9b-abd" secondAttribute="width" id="rM7-A7-mC6"/>
+                            <constraint firstItem="Jb5-IW-Y4i" firstAttribute="leading" secondItem="1I0-Xg-4Qi" secondAttribute="leading" constant="16" id="slR-Pm-wJE"/>
+                            <constraint firstItem="YcK-sp-gaS" firstAttribute="width" secondItem="Jb5-IW-Y4i" secondAttribute="width" id="sxO-D3-MYA"/>
+                            <constraint firstItem="Jb5-IW-Y4i" firstAttribute="top" secondItem="c0K-3K-Qla" secondAttribute="bottom" constant="8" id="uKu-XU-QfH"/>
+                            <constraint firstItem="P4P-9b-abd" firstAttribute="top" secondItem="Jb5-IW-Y4i" secondAttribute="top" id="yTU-eI-waw"/>
+                            <constraint firstItem="c0K-3K-Qla" firstAttribute="top" secondItem="1I0-Xg-4Qi" secondAttribute="top" constant="10" id="zf5-oN-TC6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1I0-Xg-4Qi"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Solar System" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="imgViewLeft" destination="Jb5-IW-Y4i" id="u5y-6b-wlL"/>
+                        <outlet property="imgViewRight" destination="YcK-sp-gaS" id="EtX-Oq-UUS"/>
+                        <outlet property="imgViewSelected" destination="P4P-9b-abd" id="Tmw-6c-V8y"/>
+                        <outlet property="selector" destination="ln0-1D-96t" id="X9F-ED-wch"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+                <customObject id="ln0-1D-96t" customClass="SlidingSelectorViewController" customModule="GSSlidingSelectorExampleSwift" customModuleProvider="target">
+                    <connections>
+                        <outlet property="selectorView" destination="c0K-3K-Qla" id="L0q-A5-2sX"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="491.25" y="0.0"/>
+            <point key="canvasLocation" x="1295.2" y="-0.44977511244377816"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -42,7 +90,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="455" y="0.0"/>
         </scene>
     </scenes>
     <resources>
