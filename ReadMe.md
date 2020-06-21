@@ -23,6 +23,8 @@
 1. Using Xcode 11 go to File > Swift Packages > Add Package Dependency
 2. Paste the project URL: https://github.com/Galarius/SlidingSelector.git
 3. Click on next and select the project target
+4. Drag & Drop `Sources/Media.xcassets` to `Copy Bundle Resources` section in `Build Phases`
+4. Import `SlidingSelector` wherever needed
 
 ### Swift Package Manager
 
