@@ -32,7 +32,7 @@ private extension UserDefaults {
 final public class SlidingSelectorViewController: UIViewController {
 
     @IBOutlet public weak var delegate: SlidingSelectorDelegate?
-    @IBOutlet var selectorView: SlidingSelectorView?
+    @IBOutlet public var selectorView: SlidingSelectorView?
 
     private(set) public var selectedIndex = 0 {
         didSet {
