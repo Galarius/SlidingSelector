@@ -8,17 +8,50 @@
 
 import UIKit
 
-fileprivate extension Selector {
-    static let holdGesture =
-        #selector(SlidingSelectorViewController.holdGesture(_:))
+// MARK: UserDefaults
+
+private extension UserDefaults {
+    static var hideHelp: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "HideHelp")
+        }
+        set(value) {
+            UserDefaults.standard.set(value, forKey: "HideHelp")
+        }
+    }
 }
 
-final class SlidingSelectorViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+// MARK: SlidingSelectorDelegate
 
-    weak var delegate: SlidingSelectorDelegate?
-    weak var dataSource: SlidingSelectorDataSource?
+protocol SlidingSelectorDelegate: NSObjectProtocol {
+    func slideSelector(_ selector: SlidingSelectorViewController!, didSelectItemAtIndex index: Int)
+}
 
-    var selectedIndex: Int {
+// MARK: SlidingSelectorDataSource
+
+protocol SlidingSelectorDataSource: NSObjectProtocol {
+    func numberOfItemsInSlideSelector(_ selector: SlidingSelectorViewController!) -> Int
+    func slideSelector(_ selector: SlidingSelectorViewController!, titleForItemAtIndex index: Int) -> String
+}
+
+// MARK: SlidingSelectorViewController
+
+final class SlidingSelectorViewController: UIViewController {
+
+    public weak var delegate: SlidingSelectorDelegate?
+    public weak var dataSource: SlidingSelectorDataSource?
+
+    private var labels = [UILabel]()
+    private lazy var scrollView = UIScrollView()
+    private lazy var imgViewLeft = UIImageView(image: UIImage(named: "swapRight"))
+    private lazy var imgViewRight = UIImageView(image: UIImage(named: "swapLeft"))
+
+    private let transformTextFieldAnimationTime: TimeInterval = 0.15
+    private let highlightBackColorAnimationTime: TimeInterval = 0.05
+    private let restoreBackColorAnimationTime: TimeInterval = 0.55
+
+    private(set) var selectedItem = ""
+    public var selectedIndex = 0 {
         willSet {
             transformTextField(atIndex: selectedIndex, animated: false)
         }
@@ -28,41 +61,66 @@ final class SlidingSelectorViewController: UIViewController, UIScrollViewDelegat
 
         }
     }
-    /// ScrollView to slide items horizontally
-    private lazy var scrollView = UIScrollView()
-    /// Array of text fields in scroll view
-    private var textFields: NSMutableArray
-    /// Selected & displayed item
-    private var selectedItem: NSString
-
-    private let transformTextFieldAnimationTime: TimeInterval = 0.15
-    private let highlightBackColorAnimationTime: TimeInterval = 0.05
-    private let restoreBackColorAnimationTime: TimeInterval = 0.55
-    private let maximumNumberOfElements: Int = 25
-
-    init() {
-
-        selectedIndex = 0
-        selectedItem = ""
-        textFields = []
-
-        super.init(nibName: nil, bundle: nil)
+    /// Help images will be shown only once at first launch until another item is selected
+    public var shouldHideHelp: Bool {
+        get {
+            return UserDefaults.hideHelp
+        }
+        set(value) {
+            UserDefaults.hideHelp = value
+            imgViewLeft.isHidden = value
+            imgViewRight.isHidden = value
+        }
     }
-
-    required init?(coder aDecoder: NSCoder) {
-
-        selectedIndex = 0
-        selectedItem = ""
-        textFields = []
-
-        super.init(coder: aDecoder)
+    public var font: UIFont? = UIFont(name: "Helvetica", size: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize) {
+        didSet {
+            labels.forEach { $0.font = font }
+        }
+    }
+    public var mainColor: UIColor? = UIColor(red: 240/255.0, green: 235/255.0, blue: 180/255.0, alpha: 1.0) {
+        didSet {
+            view.backgroundColor = mainColor
+        }
+    }
+    public var holdTouchColor: UIColor? = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.2)
+    public var tintColor: UIColor? = UIColor.black {
+        didSet {
+            imgViewLeft.tintColor = tintColor
+            imgViewRight.tintColor = tintColor
+        }
+    }
+    public var textColor: UIColor? = UIColor.black {
+         didSet {
+            labels.forEach { $0.textColor = textColor }
+        }
     }
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
-        setupView()
+        // Setup info images
+        imgViewLeft.tintColor = tintColor
+        imgViewRight.tintColor = tintColor
+
+        // Setup scroll view
+        scrollView.delegate = self
+        scrollView.isPagingEnabled = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = UIColor.clear
+
+        // Setup view
+        view.addSubview(scrollView)
+        view.addSubview(imgViewLeft)
+        view.addSubview(imgViewRight)
+        view.backgroundColor = mainColor
+
+        // Configure the press and hold gesture recognizer
+        let grecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SlidingSelectorViewController.holdGesture(_:)))
+        grecognizer.minimumPressDuration = 0.0
+        grecognizer.delegate = self
+        scrollView.addGestureRecognizer(grecognizer)
     }
 
     override func viewWillLayoutSubviews() {
@@ -74,7 +132,7 @@ final class SlidingSelectorViewController: UIViewController, UIScrollViewDelegat
         scrollView.frame = CGRect(x: 0, y: 0, width: w, height: h)
         scrollView.contentSize = CGSize(width: w, height: h)
 
-        if textFields.count > 0 {
+        if labels.count > 0 {
             /*
              *   |       ][    active    ][      |       ][              ]
              *         <------------>
@@ -83,163 +141,138 @@ final class SlidingSelectorViewController: UIViewController, UIScrollViewDelegat
             let w2 = w * 0.5
             let w4 = w2 * 0.5
             var x  = w4
-            for i in 0..<(textFields.count) {
-                if let tfield = textFields.object(at: i) as? UITextField {
-                    tfield.frame = CGRect(x: x, y: 0.0, width: w2, height: h)
-                    tfield.alpha = (i == selectedIndex ? 1.0 : 0.0)
-                    x += w2
-                }
+            for i in 0..<(labels.count) {
+                let lbl = labels[i]
+                lbl.frame = CGRect(x: x, y: 0.0, width: w2, height: h)
+                lbl.alpha = (i == selectedIndex ? 1.0 : 0.0)
+                x += w2
             }
             let target = CGPoint( x: CGFloat(selectedIndex) * w2, y: 0)
             scrollView.contentSize = CGSize(width: x + w4, height: h)
             scrollView.setContentOffset(target, animated: false)
         }
+
+        let offsetX: CGFloat = 20.0
+        let offsetY: CGFloat = 4.0
+        let offsetY2 = offsetY * 2.0
+        let size = h - offsetY2
+        imgViewLeft.frame = CGRect(x: offsetX, y: offsetY, width: size, height: size)
+        imgViewRight.frame = CGRect(x: w - h - offsetX, y: offsetY, width: size, height: size)
     }
 
     func setSelectedIndex(_ selectedIndex: Int, animated: Bool) {
-        guard selectedIndex != selectedIndex && selectedIndex < textFields.count else { return }
+        guard selectedIndex != selectedIndex && selectedIndex < labels.count else { return }
         transformTextField(atIndex: selectedIndex, animated: animated)
         self.selectedIndex = selectedIndex
         restoreTextField(atIndex: selectedIndex, animated: animated)
         scrollToIndex(selectedIndex, animated: animated)
     }
 
-    func setupView() {
-
-        view.backgroundColor = SlidingSelectorStyle.shared.mainColor
-
-        scrollView.delegate = self
-        scrollView.isPagingEnabled = false
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.backgroundColor = UIColor.clear
-        view.addSubview(scrollView)
-
-        // Configure the press and hold gesture recognizer
-        let grecognizer = UILongPressGestureRecognizer(target: self, action: Selector.holdGesture)
-        grecognizer.minimumPressDuration = 0.0
-        grecognizer.delegate = self
-        scrollView.addGestureRecognizer(grecognizer)
-    }
-
     func reloadData() {
-        if textFields.count > 0 {
-            // Remove all previously added text fields
-            scrollView.subviews.forEach {$0.removeFromSuperview()}
-            textFields.removeAllObjects()
-        }
         // Recreate scroll view content
-        var count = dataSource?.numberOfItemsInSlideSelector(self) ?? 0
-        if count > maximumNumberOfElements {
-            print("""
-[GSSlidingSelectorViewController] Error: Maximum number of elements is \(maximumNumberOfElements),
-                requested: \(count). Only \(maximumNumberOfElements) elements will be loaded.
-""")
-            count = maximumNumberOfElements
+        if labels.count > 0 {
+            scrollView.subviews.forEach {$0.removeFromSuperview()}
+            labels.removeAll()
         }
-
-        textFields = NSMutableArray(capacity: count)
+        let count = dataSource?.numberOfItemsInSlideSelector(self) ?? 0
         for i in 0..<(count) {
-            let title = dataSource?.slideSelector(self, titleForItemAtIndex: i)
-            let textField = SlidingSelectorStyle.shared.createTextField(withText: title)
-            textField.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            textFields.add(textField)
-            scrollView.addSubview(textField)
+            let lbl = createLabel(with: dataSource?.slideSelector(self, titleForItemAtIndex: i))
+            labels.append(lbl)
+            scrollView.addSubview(lbl)
         }
-
-        if textFields.count > 0 {
+        if labels.count > 0 {
             restoreTextField(atIndex: selectedIndex, animated: true)
         }
-
         view.setNeedsLayout()
+    }
+
+    func createLabel(with text: String?) -> UILabel {
+        let lbl = UILabel()
+        lbl.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        lbl.lineBreakMode = .byWordWrapping
+        lbl.textAlignment = .center
+        lbl.textColor = textColor
+        lbl.numberOfLines = 0
+        lbl.font = font
+        lbl.text = text
+        return lbl
     }
 
     // MARK: - State
 
     func hideNeighbors(_ hidden: Bool) {
-        let textViews = scrollView.subviews.filter {$0 is UITextField}
-        for i in 0..<(textViews.count) where i != selectedIndex {
-            textViews[i].alpha = hidden ? 0.0 : 1.0
+        imgViewLeft.alpha = hidden ? 1.0 : 0.0
+        imgViewRight.alpha = hidden ? 1.0 : 0.0
+        for i in 0..<(labels.count) where i != selectedIndex {
+            labels[i].alpha = hidden ? 0.0 : 1.0
         }
     }
 
     func toggleState(_ updating: Bool) {
-        if updating {
-            UIView.animate(withDuration: highlightBackColorAnimationTime, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                self.scrollView.backgroundColor = SlidingSelectorStyle.shared.holdTouchColor
-                self.hideNeighbors(false)
-            }, completion: nil)
-
-        } else {
-            UIView.animate(withDuration: restoreBackColorAnimationTime, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                self.scrollView.backgroundColor = UIColor.clear
-                self.hideNeighbors(true)
-            }, completion: nil)
-        }
+        let duration = updating ? highlightBackColorAnimationTime : restoreBackColorAnimationTime
+        let color = updating ? self.holdTouchColor : UIColor.clear
+        let shouldHideNeighbors = !updating
+        UIView.animate(withDuration: duration, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+            self.scrollView.backgroundColor = color
+            self.hideNeighbors(shouldHideNeighbors)
+        }, completion: nil)
     }
 
     func restoreTextField(atIndex index: Int, animated: Bool) {
-        guard let tfield = textFields[index] as? UITextField else { return }
-        if animated {
-            UIView.animate(withDuration: transformTextFieldAnimationTime, animations: {
-                tfield.transform = .identity
-            })
-        } else {
-            tfield.transform = .identity
-        }
+        UIView.animate(withDuration: animated ? transformTextFieldAnimationTime : 0, animations: {
+            self.labels[index].transform = .identity
+        })
     }
 
     func transformTextField(atIndex index: Int, animated: Bool) {
-        guard let tfield = textFields[index] as? UITextField else { return }
-        if animated {
-            UIView.animate(withDuration: transformTextFieldAnimationTime, animations: {
-                tfield.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            })
-        } else {
-            tfield.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        }
+        UIView.animate(withDuration: animated ? transformTextFieldAnimationTime : 0, animations: {
+            self.labels[index].transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        })
     }
 
     func scrollToIndex(_ index: Int, animated: Bool) {
-        let w2 = view.frame.width * 0.5
-        let target = CGPoint(x: CGFloat(index) * w2, y: 0.0)
+        let target = CGPoint(x: CGFloat(index) * 0.5 * view.frame.width, y: 0.0)
         scrollView.setContentOffset(target, animated: animated)
     }
+}
 
-    // MARK: UIScrollViewDelegate
+// MARK: UIScrollViewDelegate
 
+extension SlidingSelectorViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         toggleState(false)
     }
 
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let offset = scrollView.contentOffset.x + velocity.x * 60.0
-        let w = scrollView.frame.width
-        let pageWidth = w * 0.5
-        var idx: Int = Int(max(0, round(offset / pageWidth)))
-        idx = min(idx, Int(textFields.count - 1))
+        let pageWidth = 0.5 * scrollView.frame.width
+        var idx = Int(max(0, round(offset / pageWidth)))
+        idx = min(idx, Int(labels.count - 1))
         targetContentOffset.pointee.x = CGFloat(idx) * pageWidth
+
+        if !shouldHideHelp { shouldHideHelp = true }
+
         // Notify observer
         delegate?.slideSelector(self, didSelectItemAtIndex: idx)
 
-        if idx != selectedIndex {
-            transformTextField(atIndex: selectedIndex, animated: true)
-            restoreTextField(atIndex: idx, animated: true)
-            selectedIndex = idx
-        }
+        guard idx != selectedIndex else { return }
+        transformTextField(atIndex: selectedIndex, animated: true)
+        restoreTextField(atIndex: idx, animated: true)
+        selectedIndex = idx
     }
+}
 
-    // MARK: GestureRecognizer Delegate
+// MARK: UIGestureRecognizerDelegate
+
+extension SlidingSelectorViewController: UIGestureRecognizerDelegate {
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 
-    // MARK: GestureRecognizer Delegate
-
     @objc func holdGesture(_ gesture: UIGestureRecognizer) {
-
         switch gesture.state {
         case .began:
             toggleState(true)

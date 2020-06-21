@@ -29,10 +29,6 @@ final class FirstViewController: UIViewController, SlidingSelectorDataSource, Sl
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        view.backgroundColor = SlidingSelectorStyle.shared.mainColor
-        edgesForExtendedLayout = []
-        tabBarController?.tabBar.backgroundColor = SlidingSelectorStyle.shared.mainColor
-
         // Create GSSlidingSelectorViewController
         selector = SlidingSelectorViewController()
         selector.delegate = self
@@ -69,6 +65,10 @@ final class FirstViewController: UIViewController, SlidingSelectorDataSource, Sl
 
         // Setup Constraints Programmatically
         setupConstraints()
+
+        view.backgroundColor = selector.mainColor
+        edgesForExtendedLayout = []
+        tabBarController?.tabBar.backgroundColor = view.backgroundColor
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -33,4 +33,7 @@ Select an appropriate guide:
 
 2. Images of planets surfaces are provided on the terms of personal, non commercial use by `bytecodeminer` from [alphacoders.com](https://wall.alphacoders.com/big.php?i=725422).
 
-3. Application icon is provided on the terms of `Creative Commons (Attribution 3.0 Unported)` license from [iconfinder.com](https://www.iconfinder.com/icons/2119346/scientific_solar_system_icon)
+3. Icons are provided on the terms of `Creative Commons (Attribution 3.0 Unported)` license from iconfinder.com: 
+    * [App Icon](https://www.iconfinder.com/icons/2119346/scientific_solar_system_icon)
+    * [Swap Left Image](https://www.iconfinder.com/icons/329395/finger_gesture_hand_left_one_swipe_icon)
+    * [Swap Right Image](https://www.iconfinder.com/icons/329394/finger_gesture_hand_one_right_swipe_icon)

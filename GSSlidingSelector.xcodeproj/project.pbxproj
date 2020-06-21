@@ -12,9 +12,6 @@
 		BE07997322226B280013490D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE07997122226B280013490D /* Main.storyboard */; };
 		BE07997522226B290013490D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE07997422226B290013490D /* Assets.xcassets */; };
 		BE07997822226B290013490D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE07997622226B290013490D /* LaunchScreen.storyboard */; };
-		BE07997D22226E080013490D /* SlidingSelectorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243822216B0A00296C19 /* SlidingSelectorDataSource.swift */; };
-		BE07997E22226E080013490D /* SlidingSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E24362221658500296C19 /* SlidingSelectorDelegate.swift */; };
-		BE07997F22226E080013490D /* SlidingSelectorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1BD99522204D9300DF49C0 /* SlidingSelectorStyle.swift */; };
 		BE07998022226E080013490D /* SlidingSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */; };
 		BE0799812222E9F50013490D /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */; };
 		BE0799822222E9F50013490D /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */; };
@@ -48,6 +45,7 @@
 		BE82D5E5216A25570038609E /* Uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DC216A25560038609E /* Uranus.jpg */; };
 		BE82D5E6216A25570038609E /* Mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DD216A25560038609E /* Mars.jpg */; };
 		BE82D5E7216A25570038609E /* Venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DE216A25570038609E /* Venus.jpg */; };
+		BEBC87F8249F665F0050D387 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEBC87F7249F65D20050D387 /* Media.xcassets */; };
 		BED0AF7020ED452D008EC203 /* titilliumweb-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */; };
 		BED0AF7120ED452D008EC203 /* titilliumweb-semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */; };
 /* End PBXBuildFile section */
@@ -66,7 +64,6 @@
 		BE07998F2222EB0E0013490D /* GSSlidingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorViewController.h; sourceTree = "<group>"; };
 		BE0799902222EB0E0013490D /* GSSlidingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorViewController.m; sourceTree = "<group>"; };
 		BE0799912222EB0E0013490D /* GSSlidingSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDataSource.h; sourceTree = "<group>"; };
-		BE1BD99522204D9300DF49C0 /* SlidingSelectorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorStyle.swift; sourceTree = "<group>"; };
 		BE2A062120E761FC00D771F6 /* GSSlidingSelectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlidingSelectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2A062420E761FC00D771F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,8 +74,6 @@
 		BE2A063320E761FE00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE2A063520E761FE00D771F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE2A063620E761FE00D771F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE7E24362221658500296C19 /* SlidingSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorDelegate.swift; sourceTree = "<group>"; };
-		BE7E243822216B0A00296C19 /* SlidingSelectorDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorDataSource.swift; sourceTree = "<group>"; };
 		BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingSelectorViewController.swift; sourceTree = "<group>"; };
 		BE82D5D6216A25560038609E /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
 		BE82D5D7216A25560038609E /* Saturn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Saturn.jpg; sourceTree = "<group>"; };
@@ -89,6 +84,7 @@
 		BE82D5DC216A25560038609E /* Uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Uranus.jpg; sourceTree = "<group>"; };
 		BE82D5DD216A25560038609E /* Mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mars.jpg; sourceTree = "<group>"; };
 		BE82D5DE216A25570038609E /* Venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Venus.jpg; sourceTree = "<group>"; };
+		BEBC87F7249F65D20050D387 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		BED0AF6C20ED452D008EC203 /* ofl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ofl.txt; path = GSSlidingSelectorExample/Fonts/ofl.txt; sourceTree = SOURCE_ROOT; };
 		BED0AF6D20ED452D008EC203 /* titilliumweb-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-regular.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-regular.ttf"; sourceTree = SOURCE_ROOT; };
 		BED0AF6E20ED452D008EC203 /* titilliumweb-semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "titilliumweb-semibold.ttf"; path = "GSSlidingSelectorExample/Fonts/titilliumweb-semibold.ttf"; sourceTree = SOURCE_ROOT; };
@@ -155,10 +151,8 @@
 		BE1BD99322204D4E00DF49C0 /* GSSlidingSelectorSwift */ = {
 			isa = PBXGroup;
 			children = (
-				BE7E243822216B0A00296C19 /* SlidingSelectorDataSource.swift */,
-				BE7E24362221658500296C19 /* SlidingSelectorDelegate.swift */,
-				BE1BD99522204D9300DF49C0 /* SlidingSelectorStyle.swift */,
 				BE7E243A22216D7F00296C19 /* SlidingSelectorViewController.swift */,
+				BEBC87F7249F65D20050D387 /* Media.xcassets */,
 			);
 			path = GSSlidingSelectorSwift;
 			sourceTree = "<group>";
@@ -306,6 +300,7 @@
 				BE07997522226B290013490D /* Assets.xcassets in Resources */,
 				BE0799812222E9F50013490D /* titilliumweb-regular.ttf in Resources */,
 				BE0799842222EA0B0013490D /* Jupiter.jpg in Resources */,
+				BEBC87F8249F665F0050D387 /* Media.xcassets in Resources */,
 				BE0799892222EA0B0013490D /* Saturn.jpg in Resources */,
 				BE07998B2222EA0B0013490D /* Venus.jpg in Resources */,
 				BE07997322226B280013490D /* Main.storyboard in Resources */,
@@ -362,11 +357,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE07997F22226E080013490D /* SlidingSelectorStyle.swift in Sources */,
-				BE07997D22226E080013490D /* SlidingSelectorDataSource.swift in Sources */,
 				BE07998022226E080013490D /* SlidingSelectorViewController.swift in Sources */,
 				BE07996C22226B280013490D /* AppDelegate.swift in Sources */,
-				BE07997E22226E080013490D /* SlidingSelectorDelegate.swift in Sources */,
 				BE07996E22226B280013490D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +425,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExampleSwift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,7 +450,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExampleSwift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
