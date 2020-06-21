@@ -102,6 +102,8 @@ final class SlidingSelectorViewController: UIViewController {
         // Setup info images
         imgViewLeft.tintColor = tintColor
         imgViewRight.tintColor = tintColor
+        imgViewLeft.isHidden = shouldHideHelp
+        imgViewRight.isHidden = shouldHideHelp
 
         // Setup scroll view
         scrollView.delegate = self
