@@ -29,7 +29,7 @@ private extension UserDefaults {
 
 // MARK: SlidingSelectorViewController
 
-final class SlidingSelectorViewController: UIViewController {
+final public class SlidingSelectorViewController: UIViewController {
 
     @IBOutlet weak var delegate: SlidingSelectorDelegate?
     @IBOutlet var selectorView: SlidingSelectorView?
@@ -67,7 +67,7 @@ final class SlidingSelectorViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         let grecognizer = UILongPressGestureRecognizer(target: self, action: #selector(SlidingSelectorViewController.holdGesture(_:)))
@@ -78,7 +78,7 @@ final class SlidingSelectorViewController: UIViewController {
         selectorView?.isHelpHidden = shouldHideHelp
     }
 
-    func setSelectedIndex(_ selectedIndex: Int, animated: Bool = false) {
+    public func setSelectedIndex(_ selectedIndex: Int, animated: Bool = false) {
         guard selectedIndex != selectedIndex && selectedIndex < items.count else { return }
         selectorView?.transformTextField(atIndex: selectedIndex, animated: animated)
         self.selectedIndex = selectedIndex
@@ -90,11 +90,11 @@ final class SlidingSelectorViewController: UIViewController {
 // MARK: UIScrollViewDelegate
 
 extension SlidingSelectorViewController: UIScrollViewDelegate {
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         selectorView?.toggleState(false)
     }
 
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let offset = scrollView.contentOffset.x + velocity.x * 60.0
@@ -119,7 +119,7 @@ extension SlidingSelectorViewController: UIScrollViewDelegate {
 
 extension SlidingSelectorViewController: UIGestureRecognizerDelegate {
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
 

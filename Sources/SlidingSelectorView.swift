@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SlidingSelectorView: UIView {
+final public class SlidingSelectorView: UIView {
     @IBInspectable var holdTouchColor: UIColor? = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.2)
     @IBInspectable var textColor: UIColor? = UIColor.black {
         didSet {
@@ -46,7 +46,7 @@ final class SlidingSelectorView: UIView {
         addSubview(imgViewRight)
     }
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         let w = frame.width
