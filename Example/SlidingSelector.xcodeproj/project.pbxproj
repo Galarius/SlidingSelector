@@ -21,56 +21,19 @@
 		BE0799892222EA0B0013490D /* Saturn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D7216A25560038609E /* Saturn.jpg */; };
 		BE07998A2222EA0B0013490D /* Uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DC216A25560038609E /* Uranus.jpg */; };
 		BE07998B2222EA0B0013490D /* Venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DE216A25570038609E /* Venus.jpg */; };
-		BE0799922222EB0E0013490D /* GSSlidingSelectorStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BE07998D2222EB0E0013490D /* GSSlidingSelectorStyle.m */; };
-		BE0799932222EB0E0013490D /* GSSlidingSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0799902222EB0E0013490D /* GSSlidingSelectorViewController.m */; };
-		BE0799942222EB630013490D /* GSSlidingSelectorDataSource.h in Sources */ = {isa = PBXBuildFile; fileRef = BE0799912222EB0E0013490D /* GSSlidingSelectorDataSource.h */; };
-		BE0799952222EB630013490D /* GSSlidingSelectorDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = BE07998E2222EB0E0013490D /* GSSlidingSelectorDelegate.h */; };
-		BE0799962222EB630013490D /* GSSlidingSelectorStyle.h in Sources */ = {isa = PBXBuildFile; fileRef = BE07998C2222EB0E0013490D /* GSSlidingSelectorStyle.h */; };
-		BE0799972222EB630013490D /* GSSlidingSelectorViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = BE07998F2222EB0E0013490D /* GSSlidingSelectorViewController.h */; };
-		BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062520E761FC00D771F6 /* AppDelegate.m */; };
-		BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A062820E761FC00D771F6 /* FirstViewController.m */; };
-		BE2A062F20E761FD00D771F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A062D20E761FD00D771F6 /* Main.storyboard */; };
-		BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063020E761FE00D771F6 /* Assets.xcassets */; };
-		BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */; };
-		BE2A063720E761FE00D771F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2A063620E761FE00D771F6 /* main.m */; };
-		BE82D5DF216A25570038609E /* Jupiter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D6216A25560038609E /* Jupiter.jpg */; };
-		BE82D5E0216A25570038609E /* Saturn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D7216A25560038609E /* Saturn.jpg */; };
-		BE82D5E1216A25570038609E /* Pluto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D8216A25560038609E /* Pluto.jpg */; };
-		BE82D5E2216A25570038609E /* Earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5D9216A25560038609E /* Earth.jpg */; };
-		BE82D5E3216A25570038609E /* Mercury.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DA216A25560038609E /* Mercury.jpg */; };
-		BE82D5E4216A25570038609E /* Neptune.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DB216A25560038609E /* Neptune.jpg */; };
-		BE82D5E5216A25570038609E /* Uranus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DC216A25560038609E /* Uranus.jpg */; };
-		BE82D5E6216A25570038609E /* Mars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DD216A25560038609E /* Mars.jpg */; };
-		BE82D5E7216A25570038609E /* Venus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE82D5DE216A25570038609E /* Venus.jpg */; };
-		BEA06A85249FBF4C00D59C44 /* SlidingSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA06A80249FBE5700D59C44 /* SlidingSelectorView.swift */; };
-		BEA06A86249FBF4E00D59C44 /* SlidingSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA06A7F249FBE5600D59C44 /* SlidingSelectorViewController.swift */; };
-		BEA06A87249FBF5100D59C44 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA06A81249FBE5700D59C44 /* Media.xcassets */; };
+		BEA06A96249FDE8300D59C44 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA06A93249FDE8300D59C44 /* Media.xcassets */; };
+		BEA06A97249FDE8300D59C44 /* SlidingSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA06A94249FDE8300D59C44 /* SlidingSelectorView.swift */; };
+		BEA06A98249FDE8300D59C44 /* SlidingSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA06A95249FDE8300D59C44 /* SlidingSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BE07996922226B270013490D /* GSSlidingSelectorExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlidingSelectorExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE07996922226B270013490D /* SlidingSelectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidingSelectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE07996B22226B280013490D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE07996D22226B280013490D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		BE07997222226B280013490D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE07997422226B290013490D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE07997722226B290013490D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE07997922226B290013490D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE07998C2222EB0E0013490D /* GSSlidingSelectorStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorStyle.h; sourceTree = "<group>"; };
-		BE07998D2222EB0E0013490D /* GSSlidingSelectorStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorStyle.m; sourceTree = "<group>"; };
-		BE07998E2222EB0E0013490D /* GSSlidingSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDelegate.h; sourceTree = "<group>"; };
-		BE07998F2222EB0E0013490D /* GSSlidingSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorViewController.h; sourceTree = "<group>"; };
-		BE0799902222EB0E0013490D /* GSSlidingSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSlidingSelectorViewController.m; sourceTree = "<group>"; };
-		BE0799912222EB0E0013490D /* GSSlidingSelectorDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSlidingSelectorDataSource.h; sourceTree = "<group>"; };
-		BE2A062120E761FC00D771F6 /* GSSlidingSelectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSSlidingSelectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE2A062420E761FC00D771F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		BE2A062520E761FC00D771F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BE2A062720E761FC00D771F6 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		BE2A062820E761FC00D771F6 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		BE2A062E20E761FD00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BE2A063020E761FE00D771F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BE2A063320E761FE00D771F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BE2A063520E761FE00D771F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE2A063620E761FE00D771F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE82D5D6216A25560038609E /* Jupiter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Jupiter.jpg; sourceTree = "<group>"; };
 		BE82D5D7216A25560038609E /* Saturn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Saturn.jpg; sourceTree = "<group>"; };
 		BE82D5D8216A25560038609E /* Pluto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pluto.jpg; sourceTree = "<group>"; };
@@ -80,9 +43,9 @@
 		BE82D5DC216A25560038609E /* Uranus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Uranus.jpg; sourceTree = "<group>"; };
 		BE82D5DD216A25560038609E /* Mars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mars.jpg; sourceTree = "<group>"; };
 		BE82D5DE216A25570038609E /* Venus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Venus.jpg; sourceTree = "<group>"; };
-		BEA06A7F249FBE5600D59C44 /* SlidingSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingSelectorViewController.swift; path = ../Sources/SlidingSelectorViewController.swift; sourceTree = "<group>"; };
-		BEA06A80249FBE5700D59C44 /* SlidingSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingSelectorView.swift; path = ../Sources/SlidingSelectorView.swift; sourceTree = "<group>"; };
-		BEA06A81249FBE5700D59C44 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Sources/Media.xcassets; sourceTree = "<group>"; };
+		BEA06A93249FDE8300D59C44 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../../Sources/Media.xcassets; sourceTree = "<group>"; };
+		BEA06A94249FDE8300D59C44 /* SlidingSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingSelectorView.swift; path = ../../Sources/SlidingSelectorView.swift; sourceTree = "<group>"; };
+		BEA06A95249FDE8300D59C44 /* SlidingSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlidingSelectorViewController.swift; path = ../../Sources/SlidingSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,17 +56,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE2A061E20E761FC00D771F6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BE07996A22226B280013490D /* GSSlidingSelectorExampleSwift */ = {
+		BE07996A22226B280013490D /* SlidingSelectorExample */ = {
 			isa = PBXGroup;
 			children = (
 				BE07996B22226B280013490D /* AppDelegate.swift */,
@@ -113,7 +69,7 @@
 				BE07997622226B290013490D /* LaunchScreen.storyboard */,
 				BE07997922226B290013490D /* Info.plist */,
 			);
-			path = GSSlidingSelectorExampleSwift;
+			path = SlidingSelectorExample;
 			sourceTree = "<group>";
 		};
 		BE1582B620E9624900C98D25 /* Images */ = {
@@ -135,13 +91,9 @@
 		BE2A061820E761FC00D771F6 = {
 			isa = PBXGroup;
 			children = (
-				BEA06A81249FBE5700D59C44 /* Media.xcassets */,
-				BEA06A80249FBE5700D59C44 /* SlidingSelectorView.swift */,
-				BEA06A7F249FBE5600D59C44 /* SlidingSelectorViewController.swift */,
+				BEA06A92249FDE7600D59C44 /* SlidingSelector */,
 				BE1582B620E9624900C98D25 /* Images */,
-				BE2A063D20E7625200D771F6 /* GSSlidingSelector */,
-				BE2A062320E761FC00D771F6 /* GSSlidingSelectorExample */,
-				BE07996A22226B280013490D /* GSSlidingSelectorExampleSwift */,
+				BE07996A22226B280013490D /* SlidingSelectorExample */,
 				BE2A062220E761FC00D771F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,47 +101,27 @@
 		BE2A062220E761FC00D771F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE2A062120E761FC00D771F6 /* GSSlidingSelectorExample.app */,
-				BE07996922226B270013490D /* GSSlidingSelectorExampleSwift.app */,
+				BE07996922226B270013490D /* SlidingSelectorExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BE2A062320E761FC00D771F6 /* GSSlidingSelectorExample */ = {
+		BEA06A92249FDE7600D59C44 /* SlidingSelector */ = {
 			isa = PBXGroup;
 			children = (
-				BE2A062420E761FC00D771F6 /* AppDelegate.h */,
-				BE2A062520E761FC00D771F6 /* AppDelegate.m */,
-				BE2A062720E761FC00D771F6 /* FirstViewController.h */,
-				BE2A062820E761FC00D771F6 /* FirstViewController.m */,
-				BE2A062D20E761FD00D771F6 /* Main.storyboard */,
-				BE2A063020E761FE00D771F6 /* Assets.xcassets */,
-				BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */,
-				BE2A063520E761FE00D771F6 /* Info.plist */,
-				BE2A063620E761FE00D771F6 /* main.m */,
+				BEA06A93249FDE8300D59C44 /* Media.xcassets */,
+				BEA06A94249FDE8300D59C44 /* SlidingSelectorView.swift */,
+				BEA06A95249FDE8300D59C44 /* SlidingSelectorViewController.swift */,
 			);
-			path = GSSlidingSelectorExample;
-			sourceTree = "<group>";
-		};
-		BE2A063D20E7625200D771F6 /* GSSlidingSelector */ = {
-			isa = PBXGroup;
-			children = (
-				BE0799912222EB0E0013490D /* GSSlidingSelectorDataSource.h */,
-				BE07998E2222EB0E0013490D /* GSSlidingSelectorDelegate.h */,
-				BE07998C2222EB0E0013490D /* GSSlidingSelectorStyle.h */,
-				BE07998D2222EB0E0013490D /* GSSlidingSelectorStyle.m */,
-				BE07998F2222EB0E0013490D /* GSSlidingSelectorViewController.h */,
-				BE0799902222EB0E0013490D /* GSSlidingSelectorViewController.m */,
-			);
-			path = GSSlidingSelector;
+			path = SlidingSelector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BE07996822226B270013490D /* GSSlidingSelectorExampleSwift */ = {
+		BE07996822226B270013490D /* SlidingSelectorExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE07997C22226B290013490D /* Build configuration list for PBXNativeTarget "GSSlidingSelectorExampleSwift" */;
+			buildConfigurationList = BE07997C22226B290013490D /* Build configuration list for PBXNativeTarget "SlidingSelectorExample" */;
 			buildPhases = (
 				BE07996522226B270013490D /* Sources */,
 				BE07996622226B270013490D /* Frameworks */,
@@ -200,26 +132,9 @@
 			);
 			dependencies = (
 			);
-			name = GSSlidingSelectorExampleSwift;
+			name = SlidingSelectorExample;
 			productName = GSSlidingSelectorSwift;
-			productReference = BE07996922226B270013490D /* GSSlidingSelectorExampleSwift.app */;
-			productType = "com.apple.product-type.application";
-		};
-		BE2A062020E761FC00D771F6 /* GSSlidingSelectorExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BE2A063A20E761FE00D771F6 /* Build configuration list for PBXNativeTarget "GSSlidingSelectorExample" */;
-			buildPhases = (
-				BE2A061D20E761FC00D771F6 /* Sources */,
-				BE2A061E20E761FC00D771F6 /* Frameworks */,
-				BE2A061F20E761FC00D771F6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GSSlidingSelectorExample;
-			productName = GSQuickSelector;
-			productReference = BE2A062120E761FC00D771F6 /* GSSlidingSelectorExample.app */;
+			productReference = BE07996922226B270013490D /* SlidingSelectorExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -236,10 +151,6 @@
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1120;
 					};
-					BE2A062020E761FC00D771F6 = {
-						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 1000;
-					};
 				};
 			};
 			buildConfigurationList = BE2A061C20E761FC00D771F6 /* Build configuration list for PBXProject "GSSlidingSelector" */;
@@ -255,8 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE2A062020E761FC00D771F6 /* GSSlidingSelectorExample */,
-				BE07996822226B270013490D /* GSSlidingSelectorExampleSwift */,
+				BE07996822226B270013490D /* SlidingSelectorExample */,
 			);
 		};
 /* End PBXProject section */
@@ -268,7 +178,7 @@
 			files = (
 				BE0799832222EA0B0013490D /* Earth.jpg in Resources */,
 				BE0799882222EA0B0013490D /* Pluto.jpg in Resources */,
-				BEA06A87249FBF5100D59C44 /* Media.xcassets in Resources */,
+				BEA06A96249FDE8300D59C44 /* Media.xcassets in Resources */,
 				BE07997822226B290013490D /* LaunchScreen.storyboard in Resources */,
 				BE0799852222EA0B0013490D /* Mars.jpg in Resources */,
 				BE0799862222EA0B0013490D /* Mercury.jpg in Resources */,
@@ -279,25 +189,6 @@
 				BE07998B2222EA0B0013490D /* Venus.jpg in Resources */,
 				BE07997322226B280013490D /* Main.storyboard in Resources */,
 				BE07998A2222EA0B0013490D /* Uranus.jpg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE2A061F20E761FC00D771F6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE2A063420E761FE00D771F6 /* LaunchScreen.storyboard in Resources */,
-				BE82D5E7216A25570038609E /* Venus.jpg in Resources */,
-				BE82D5E6216A25570038609E /* Mars.jpg in Resources */,
-				BE82D5E1216A25570038609E /* Pluto.jpg in Resources */,
-				BE2A063120E761FE00D771F6 /* Assets.xcassets in Resources */,
-				BE82D5DF216A25570038609E /* Jupiter.jpg in Resources */,
-				BE82D5E0216A25570038609E /* Saturn.jpg in Resources */,
-				BE82D5E2216A25570038609E /* Earth.jpg in Resources */,
-				BE82D5E4216A25570038609E /* Neptune.jpg in Resources */,
-				BE2A062F20E761FD00D771F6 /* Main.storyboard in Resources */,
-				BE82D5E3216A25570038609E /* Mercury.jpg in Resources */,
-				BE82D5E5216A25570038609E /* Uranus.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,26 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEA06A86249FBF4E00D59C44 /* SlidingSelectorViewController.swift in Sources */,
+				BEA06A98249FDE8300D59C44 /* SlidingSelectorViewController.swift in Sources */,
 				BE07996C22226B280013490D /* AppDelegate.swift in Sources */,
-				BEA06A85249FBF4C00D59C44 /* SlidingSelectorView.swift in Sources */,
+				BEA06A97249FDE8300D59C44 /* SlidingSelectorView.swift in Sources */,
 				BE07996E22226B280013490D /* FirstViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE2A061D20E761FC00D771F6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE0799942222EB630013490D /* GSSlidingSelectorDataSource.h in Sources */,
-				BE0799952222EB630013490D /* GSSlidingSelectorDelegate.h in Sources */,
-				BE0799962222EB630013490D /* GSSlidingSelectorStyle.h in Sources */,
-				BE0799972222EB630013490D /* GSSlidingSelectorViewController.h in Sources */,
-				BE0799922222EB0E0013490D /* GSSlidingSelectorStyle.m in Sources */,
-				BE0799932222EB0E0013490D /* GSSlidingSelectorViewController.m in Sources */,
-				BE2A062620E761FC00D771F6 /* AppDelegate.m in Sources */,
-				BE2A063720E761FE00D771F6 /* main.m in Sources */,
-				BE2A062920E761FC00D771F6 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,22 +246,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		BE2A062D20E761FD00D771F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE2A062E20E761FD00D771F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BE2A063220E761FE00D771F6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE2A063320E761FE00D771F6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -397,7 +256,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28ZE7583ZV;
-				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExampleSwift/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SlidingSelectorExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -422,7 +281,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28ZE7583ZV;
-				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExampleSwift/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/SlidingSelectorExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -550,57 +409,10 @@
 			};
 			name = Release;
 		};
-		BE2A063B20E761FE00D771F6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZE7583ZV;
-				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.galarius.GSQuickSelector;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "GSSlidingSelectorSwift/GSSlidingSelector-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		BE2A063C20E761FE00D771F6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28ZE7583ZV;
-				INFOPLIST_FILE = "$(SRCROOT)/GSSlidingSelectorExample/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.galarius.GSQuickSelector;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "GSSlidingSelectorSwift/GSSlidingSelector-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE07997C22226B290013490D /* Build configuration list for PBXNativeTarget "GSSlidingSelectorExampleSwift" */ = {
+		BE07997C22226B290013490D /* Build configuration list for PBXNativeTarget "SlidingSelectorExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE07997A22226B290013490D /* Debug */,
@@ -614,15 +426,6 @@
 			buildConfigurations = (
 				BE2A063820E761FE00D771F6 /* Debug */,
 				BE2A063920E761FE00D771F6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE2A063A20E761FE00D771F6 /* Build configuration list for PBXNativeTarget "GSSlidingSelectorExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BE2A063B20E761FE00D771F6 /* Debug */,
-				BE2A063C20E761FE00D771F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
