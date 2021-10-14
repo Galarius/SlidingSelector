@@ -59,7 +59,7 @@ The example project is located under `Example` folder.
 
 ## License
 
-1. `GSSlidingSelector` is released under the MIT license. See [LICENSE](https://github.com/galarius/GSSlidingSelector/blob/master/LICENSE) for details.
+1. `SlidingSelector` is released under the MIT license. See [LICENSE](https://github.com/galarius/SlidingSelector/blob/master/LICENSE) for details.
 
 2. Images of planets surfaces are provided on the terms of personal, non commercial use by `bytecodeminer` from [alphacoders.com](https://wall.alphacoders.com/big.php?i=725422).
 
