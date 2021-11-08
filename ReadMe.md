@@ -18,18 +18,16 @@
 
 ## Installation
 
-### Adding it to an existent iOS Project via Swift Package Manager
+### Existing iOS Project
 
 1. Using Xcode 11 go to File > Swift Packages > Add Package Dependency
 2. Paste the project URL: https://github.com/Galarius/SlidingSelector.git
-3. Click on next and select the project target
-4. Drag & Drop `Sources/Media.xcassets` to `Copy Bundle Resources` section in `Build Phases`
-4. Import `SlidingSelector` wherever needed
+3. Import `SlidingSelector`
 
 ### Swift Package Manager
 
 ```swift
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 
 import PackageDescription
 
@@ -52,10 +50,6 @@ And then import wherever needed: `import SlidingSelector`
 ## Usage
 
 The example project is located under `Example` folder.
-
-![](./assets/setup.png)
-
-*SlidingSelector setup in the Interface Builder*
 
 ## License
 

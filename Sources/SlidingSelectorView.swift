@@ -1,6 +1,6 @@
 //
 //  SlidingSelectorView.swift
-//  GSSlidingSelector
+//  SlidingSelector
 //
 //  Created by galarius on 21.06.2020.
 //  Copyright © 2020 galarius. All rights reserved.
@@ -16,7 +16,7 @@ final public class SlidingSelectorView: UIView {
        }
     }
     public var font: UIFont? = UIFont(name: "Helvetica", size: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2).pointSize)
-    
+
     var isHelpHidden = false {
         didSet {
             imgViewLeft.isHidden = isHelpHidden
@@ -27,8 +27,8 @@ final public class SlidingSelectorView: UIView {
     var scrollView = UIScrollView()
 
     private var labels = [UILabel]()
-    private var imgViewLeft = UIImageView(image: UIImage(named: "swapRight"))
-    private var imgViewRight = UIImageView(image: UIImage(named: "swapLeft"))
+    private var imgViewLeft = UIImageView(image: UIImage(named: "swapRight", in: .module, compatibleWith: nil))
+    private var imgViewRight = UIImageView(image: UIImage(named: "swapLeft", in: .module, compatibleWith: nil))
 
     private let transformTextFieldAnimationTime: TimeInterval = 0.15
     private let highlightBackColorAnimationTime: TimeInterval = 0.05
@@ -88,15 +88,18 @@ final public class SlidingSelectorView: UIView {
            self.labels[index].transform = .identity
        })
     }
+
     func transformTextField(atIndex index: Int, animated: Bool) {
        UIView.animate(withDuration: animated ? transformTextFieldAnimationTime : 0, animations: {
            self.labels[index].transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
        })
     }
+
     func scrollToIndex(_ index: Int, animated: Bool) {
         let target = CGPoint(x: CGFloat(index) * 0.5 * frame.width, y: 0.0)
         scrollView.setContentOffset(target, animated: animated)
     }
+
     func toggleState(_ updating: Bool) {
         let duration = updating ? highlightBackColorAnimationTime : restoreBackColorAnimationTime
         let color = updating ? holdTouchColor : UIColor.clear
@@ -106,17 +109,12 @@ final public class SlidingSelectorView: UIView {
             self.hideNeighbors(shouldHideNeighbors)
         }, completion: nil)
     }
-    func hideNeighbors(_ hidden: Bool) {
-        imgViewLeft.alpha = hidden ? 1.0 : 0.0
-        imgViewRight.alpha = hidden ? 1.0 : 0.0
-        for i in 0..<(labels.count) where i != selectedIndex {
-            labels[i].alpha = hidden ? 0.0 : 1.0
-        }
-    }
+
     func clearLabels() {
         scrollView.subviews.forEach { if $0 is UILabel { $0.removeFromSuperview() } }
         labels.removeAll()
     }
+
     func addLabel(_ text: String) {
         let lbl = UILabel()
         lbl.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
@@ -128,5 +126,13 @@ final public class SlidingSelectorView: UIView {
         lbl.text = text
         scrollView.addSubview(lbl)
         labels.append(lbl)
+    }
+
+    private func hideNeighbors(_ hidden: Bool) {
+        imgViewLeft.alpha = hidden ? 1.0 : 0.0
+        imgViewRight.alpha = hidden ? 1.0 : 0.0
+        for i in 0..<(labels.count) where i != selectedIndex {
+            labels[i].alpha = hidden ? 0.0 : 1.0
+        }
     }
 }

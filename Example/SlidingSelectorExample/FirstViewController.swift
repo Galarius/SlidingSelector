@@ -7,41 +7,38 @@
 //
 
 import UIKit
-
-let GSDefaultSelectedIndex: Int = 3   // [1 - 7]
-let GSTransformImageAnimationTime: TimeInterval = 0.4
+import SlidingSelector
 
 final class FirstViewController: UIViewController, SlidingSelectorDelegate {
 
-    @IBOutlet var selector: SlidingSelectorViewController!
+    @IBOutlet private var selector: SlidingSelectorViewController!
+    @IBOutlet private var imgViewLeft: UIImageView!
+    @IBOutlet private var imgViewSelected: UIImageView!
+    @IBOutlet private var imgViewRight: UIImageView!
 
-    @IBOutlet var imgViewLeft: UIImageView!
-    @IBOutlet var imgViewSelected: UIImageView!
-    @IBOutlet var imgViewRight: UIImageView!
-
-    var prevSelectedIndex: Int = 0
-
-    var items  = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"]
+    private var prevSelectedIndex = 3
+    private let defaultSelectedIndex = 3
+    private let animationTime: TimeInterval = 0.4
+    private let items  = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         selector.items = items
         selector.delegate = self
-        selector.setSelectedIndex(GSDefaultSelectedIndex, animated: false)
-        prevSelectedIndex = GSDefaultSelectedIndex
+        selector.setSelectedIndex(defaultSelectedIndex, animated: false)
 
         // Set default images
-        imgViewLeft.image = imageFromIndex(GSDefaultSelectedIndex-1)
-        imgViewSelected.image = imageFromIndex(GSDefaultSelectedIndex)
-        imgViewRight.image = imageFromIndex(GSDefaultSelectedIndex+1)
+        imgViewLeft.image = imageFromIndex(defaultSelectedIndex - 1)
+        imgViewSelected.image = imageFromIndex(defaultSelectedIndex)
+        imgViewRight.image = imageFromIndex(defaultSelectedIndex + 1)
 
         view.backgroundColor = UIColor(red: 240/255.0, green: 235/255.0, blue: 180/255.0, alpha: 1.0)
         edgesForExtendedLayout = []
         tabBarController?.tabBar.backgroundColor = view.backgroundColor
     }
 
-    override func  viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { _ in
                 let orientation = UIApplication.shared.statusBarOrientation
                 if orientation.isLandscape {
@@ -58,19 +55,17 @@ final class FirstViewController: UIViewController, SlidingSelectorDelegate {
         super.viewWillTransition(to: size, with: coordinator)
     }
 
-    func imageFromIndex(_ index: Int) -> UIImage? {
+    private func imageFromIndex(_ index: Int) -> UIImage? {
         let name = items[index]
         return UIImage(named: "\(name).jpg")
     }
 
-    //NOTE: GSSlidingSelectorDelegate
+    // NOTE: - SlidingSelectorDelegate
 
     func slideSelector(_ selector: SlidingSelectorViewController!, didSelectItemAtIndex index: Int) {
         if index == prevSelectedIndex {
             return
         }
-
-        print("[GSSlidingSelectorViewController] Selected item at index: \(index) (\(items[index]))")
 
         var prevImage: UIImage?
         var selectedImage: UIImage?
@@ -84,15 +79,15 @@ final class FirstViewController: UIViewController, SlidingSelectorDelegate {
             nextImage = imageFromIndex(index+1)
         }
 
-        UIView.transition(with: imgViewLeft, duration: GSTransformImageAnimationTime, options: .transitionFlipFromLeft, animations: {
+        UIView.transition(with: imgViewLeft, duration: animationTime, options: .transitionFlipFromLeft, animations: {
             self.imgViewLeft.image = prevImage
         }, completion: nil)
 
-        UIView.transition(with: imgViewSelected, duration: GSTransformImageAnimationTime, options: .transitionFlipFromLeft, animations: {
+        UIView.transition(with: imgViewSelected, duration: animationTime, options: .transitionFlipFromLeft, animations: {
             self.imgViewSelected.image = selectedImage
         }, completion: nil)
 
-        UIView.transition(with: imgViewRight, duration: GSTransformImageAnimationTime, options: .transitionFlipFromLeft, animations: {
+        UIView.transition(with: imgViewRight, duration: animationTime, options: .transitionFlipFromLeft, animations: {
             self.imgViewRight.image = nextImage
         }, completion: nil)
 

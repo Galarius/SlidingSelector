@@ -1,6 +1,6 @@
 //
 //  SlidingSelectorViewController.swift
-//  GSSlidingSelector
+//  SlidingSelector
 //
 //  Created by galarius on 23.02.2019.
 //  Copyright © 2019 galarius. All rights reserved.

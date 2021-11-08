@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0K-3K-Qla" customClass="SlidingSelectorView" customModule="SlidingSelectorExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0K-3K-Qla" customClass="SlidingSelectorView" customModule="SlidingSelector">
                                 <rect key="frame" x="0.0" y="10" width="375" height="50"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.92156862745098034" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -24,7 +24,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="value" systemColor="darkTextColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -38,6 +38,7 @@
                                 <rect key="frame" x="247.5" y="68" width="111.5" height="550"/>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="1I0-Xg-4Qi"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="P4P-9b-abd" firstAttribute="bottom" secondItem="Jb5-IW-Y4i" secondAttribute="bottom" id="2I5-B3-ab2"/>
@@ -56,7 +57,6 @@
                             <constraint firstItem="P4P-9b-abd" firstAttribute="top" secondItem="Jb5-IW-Y4i" secondAttribute="top" id="yTU-eI-waw"/>
                             <constraint firstItem="c0K-3K-Qla" firstAttribute="top" secondItem="1I0-Xg-4Qi" secondAttribute="top" constant="10" id="zf5-oN-TC6"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="1I0-Xg-4Qi"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Solar System" image="first" id="acW-dT-cKf"/>
                     <connections>
@@ -67,7 +67,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-                <customObject id="ln0-1D-96t" customClass="SlidingSelectorViewController" customModule="SlidingSelectorExample" customModuleProvider="target">
+                <customObject id="ln0-1D-96t" customClass="SlidingSelectorViewController" customModule="SlidingSelector">
                     <connections>
                         <outlet property="selectorView" destination="c0K-3K-Qla" id="J5x-Od-Oco"/>
                     </connections>
@@ -95,5 +95,8 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
